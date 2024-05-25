@@ -11,7 +11,6 @@ function App(){
     <>
     <HP_Header/>
       <Outlet/>
-      <HP_Footer/>
     <HP_Footer/>
   </>
   )
