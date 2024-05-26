@@ -16,7 +16,7 @@ export default function  HP_Header(){
 
       {/*One*/}
         <div className='col-lg-2 col-md-2 col-sm-2 col-2 py-2'>
-        <Link to ="">
+        <Link to ="/ecomm">
         <img src={logo} width = "40px"  alt="Logo" className="col rounded-circle"></img>
         </Link>
         </div>
@@ -34,7 +34,7 @@ export default function  HP_Header(){
            {/*Three-One => If Logged in Login should be replaced with user's Name*/}
           <div className="col-lg-3 col-md-3 col-sm-3 col-4">
           <button className="btn btn-primary">
-            <Link to ="/customerlogin" className="text-decoration-none text-white">
+            <Link to ="/ecomm/customerlogin" className="text-decoration-none text-white">
             {/* Custom CSS 'navbar_icon' => to scale*/} 
               <BiUser className="mx-2 navbar_icon"/>
               {/* Custom CSS 'navbar_text'*/} 
@@ -56,7 +56,7 @@ export default function  HP_Header(){
             {/*Three-Three*/}
             <div className="col-lg-6 col-md-6 col-sm-3 col-4">
               <button className="btn btn-primary">
-                <Link to="/vendor" className="text-decoration-none text-white">
+                <Link to="/ecomm/vendor" className="text-decoration-none text-white">
                   <BsShop className="mx-2 navbar_icon"/>
                   {/* Custom CSS 'navbar_text'*/}
                   <span className="navbar_text">Become a Vendor</span>

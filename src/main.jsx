@@ -23,20 +23,20 @@ const router = createBrowserRouter([
     path: '/ecomm', 
     element: <App />, 
     children: [
-      { path: '', element: <HP_HomeScreen /> },  // Relative path for default child route
-      { path: 'customerlogin', element: <HP_Login /> },
-      { path: 'customer/registration', element: <HP_Register /> },
+      { path: '/ecomm', element: <HP_HomeScreen /> },  // Relative path for default child route
+      { path: '/ecomm/customerlogin', element: <HP_Login /> },
+      { path: '/ecomm/customer/registration', element: <HP_Register /> },
       { path: 'product/iphone13', element: <HP_Product /> }
     ]
   },
   {
-    path: '/vendor', 
+    path: '/ecomm/vendor', 
     element: <VP_Base />, 
     children: [
-      { path: '', element: <VP_WelcomeMessage /> },  // Relative path for default child route
-      { path: 'login', element: <VP_LoginPage /> },
-      { path: 'login/otp', element: <VP_LoginOTP /> },
-      { path: 'registration', element: <VP_Register /> }  // Corrected import name
+      { path: '/ecomm/vendor', element: <VP_WelcomeMessage /> },  // Relative path for default child route
+      { path: '/ecomm/vendor/login', element: <VP_LoginPage /> },
+      { path: '/ecomm/vendor/loginotp', element: <VP_LoginOTP /> },
+      { path: '/ecomm/vendor/registration', element: <VP_Register /> }  // Corrected import name
     ]
   }
 ]);

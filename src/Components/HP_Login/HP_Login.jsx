@@ -31,7 +31,7 @@ export default function HP_Login(){
         <Link><button type="button" className="col-lg-12 col-md-12 col-sm-12 col-12 btn btn-outline-primary mt-3">Login</button></Link>
         <hr/>
         <p className="text-secondary">New to family? Register here </p>
-        <Link to="/customer/registration"> <button type="button" className="col-lg-12 col-md-12 col-sm-12 col-12 btn btn-primary mt-2">Register</button></Link>
+        <Link to="/ecomm/customer/registration"> <button type="button" className="col-lg-12 col-md-12 col-sm-12 col-12 btn btn-primary mt-2">Register</button></Link>
         </div>
         </div>
         </form>

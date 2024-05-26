@@ -18,7 +18,7 @@ function LoginOTP(){
         <div className="d-flex flex-row justify-content-between">
         <h2 className="okay">Create Account</h2>
         <div className="mx-4 border border-1 rounded text-danger align-content-center goBack">
-        <Link to ="/vendor/login"><FcExpand /></Link>
+        <Link to ="/ecomm/vendor/login"><FcExpand /></Link>
         </div>
         </div>
 
