@@ -47,7 +47,7 @@ export default function HP_TopRatedProducts() {
         {topProducts.map((data, index) => (
           <div className="col-lg col-md-3 col-sm-4 col-4  m-3" key={index}>
             <div className="d-flex flex flex-column  border border-1 rounded rounded-2">
-            <Link to= "/product/iphone13" className="text-decoration-none text-dark">
+            <Link to= "/ecomm/product/iphone13" className="text-decoration-none text-dark">
               <img
                 src={data.img}
                 alt={data.name}

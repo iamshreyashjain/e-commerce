@@ -15,28 +15,28 @@ import HP_Product from './Components/HP_Product/HP_Product.jsx';
 import VP_Base from './Components/VP_Base/VP_Base.jsx';
 import VP_WelcomeMessage from './Components/VP_WelcomeMessage/VP_WelcomeMessage.jsx';
 import VP_LoginPage from './Components/VP_LoginPage/VP_LoginPage.jsx';
-import VP_Register from './Components/VP_Register/VP_Register.jsx';  // Corrected import name
+import VP_Register from './Components/VP_Register/VP_Register.jsx';  
 import VP_LoginOTP from './Components/VP_LoginOTP/VP_LoginOTP.jsx';
 
 const router = createBrowserRouter([
   {
-    path: '/ecomm', 
+    path: '/ecomm/', 
     element: <App />, 
     children: [
-      { path: '/ecomm', element: <HP_HomeScreen /> },  // Relative path for default child route
+      { path: '/ecomm/', element: <HP_HomeScreen /> }, 
       { path: '/ecomm/customerlogin', element: <HP_Login /> },
       { path: '/ecomm/customer/registration', element: <HP_Register /> },
-      { path: 'product/iphone13', element: <HP_Product /> }
+      { path: '/ecomm/product/iphone13', element: <HP_Product /> }
     ]
   },
   {
     path: '/ecomm/vendor', 
     element: <VP_Base />, 
     children: [
-      { path: '/ecomm/vendor', element: <VP_WelcomeMessage /> },  // Relative path for default child route
+      { path: '/ecomm/vendor', element: <VP_WelcomeMessage /> },  
       { path: '/ecomm/vendor/login', element: <VP_LoginPage /> },
       { path: '/ecomm/vendor/loginotp', element: <VP_LoginOTP /> },
-      { path: '/ecomm/vendor/registration', element: <VP_Register /> }  // Corrected import name
+      { path: '/ecomm/vendor/registration', element: <VP_Register /> }  
     ]
   }
 ]);

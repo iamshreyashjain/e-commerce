@@ -31,7 +31,7 @@ export default function VP_Header() {
             </Link>
       
 
-    <Link to ="/ecomm">
+    <Link to ="/ecomm/">
       <button className=" btn btn-outline-primary align-content-start">
       {/* Custom CSS 'navbar_icon' => to scale*/} 
         <BsShop className="mx-2 navbar_icon mb-1"/>

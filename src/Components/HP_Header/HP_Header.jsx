@@ -16,7 +16,7 @@ export default function  HP_Header(){
 
       {/*One*/}
         <div className='col-lg-2 col-md-2 col-sm-2 col-2 py-2'>
-        <Link to ="/ecomm">
+        <Link to ="/ecomm/">
         <img src={logo} width = "40px"  alt="Logo" className="col rounded-circle"></img>
         </Link>
         </div>
