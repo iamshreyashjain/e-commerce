@@ -1,39 +1,42 @@
-import image_1 from "../../assets/images/iphone13_thumbnail_1.jpg"
-
-
-import { FaStar } from "react-icons/fa";
-import { FaTag } from "react-icons/fa6";
-
+import image_1 from "../../assets/images/iphone13_thumbnail_1.jpg";
+import { FaStar, FaTag } from "react-icons/fa";
 import './HP_Product.css';
 
-export default function HP_Product(){
+const rating = 3.6;
 
-    return(
+export default function HP_Product() {
+    return (
         <>
             <div className='d-flex flex flex-row justify-content-between m-5 shadow shadow-2'>
-                <div className='col-lg-6 col-md-6 border border-1 text-center'>
+                <div className='col-lg-6 col-md-6  text-center'>
                     <div>
-                        <img src ={image_1} className="col-lg-6 col-md-6 col-sm-8 col-8 p-2" />
+                        <img src={image_1} className="col-lg-6 col-md-6 col-sm-8 col-8 p-2" alt="iPhone 13" />
                     </div>
                 </div>
-                <div className='d-flex flex flex-column col-lg-6 col-md-6 border border-1'>
-                    
-                <div><h3>Apple iPhone 13 (Starlight, 128 GB)</h3></div>
-                    
+                <div className='d-flex flex flex-column col-lg-6 col-md-6'>
+                    <div><h3>Apple iPhone 13 (Starlight, 128 GB)</h3></div>
                     <div className="d-flex flex  justify-content-between">
-                        <p>Apple {}</p>
-                        <p>Apple Inc. </p>
+                        <p>Apple</p>
+                        <p className="mx-3">Apple Inc. </p>
                     </div>
-                    
-                    <div className = "d-flex flex flex-row justify-content-between  col-lg-6">
-                        <span className = "d-flex flex justify-content-center align-items-center p-1 bg-success rounded rounded-2">
-                            <h6 className="text-light">4.3</h6>
-                            <FaStar className = " mb-2 text-light"></FaStar>
+                    <div className="d-flex flex flex-row">
+                        <span className={`d-flex flex`}>
+                            {rating > 0 ?
+                            <>
+                            <div style={{height: "25px"}} className={`p-1 d-flex flex ${rating >= 3.5 ? 'bg-success' : rating <= 1 ? 'bg-danger' : 'bg-warning'} rounded rounded-2`}>
+                                <h6 className="text-light ">{rating}</h6>
+                                <FaStar className="text-light mx-2 "></FaStar>
+                            </div>
+                            <p className='text-secondary mx-2'>1,212 Rating</p>
+                            <p>12 Reviews</p>
+                            </>
+                            :
+                            <> 
+                            <p>No Ratings yet...</p>
+                            </>
+                        }
                         </span>
-                        <p>total rated by</p>
-                        <p> & total reviews</p>
                     </div>
-
                     <div className="d-flex flex flex-column">
                         <h6>Available Offers</h6>
                         <div className="mx-2">
@@ -43,5 +46,5 @@ export default function HP_Product(){
                 </div>
             </div>
         </>
-    )
+    );
 }
