@@ -27,7 +27,7 @@ export default function HP_Product(){
                     
                     <div className = "d-flex flex flex-row justify-content-between  col-lg-6">
                         <span className = "d-flex flex justify-content-center align-items-center p-1 bg-success rounded rounded-2">
-                            <h6 className="text-light">4.2</h6>
+                            <h6 className="text-light">4.3</h6>
                             <FaStar className = " mb-2 text-light"></FaStar>
                         </span>
                         <p>total rated by</p>
