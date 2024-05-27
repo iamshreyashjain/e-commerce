@@ -1,8 +1,13 @@
 import image_1 from "../../assets/images/iphone13_thumbnail_1.jpg";
-import { FaStar, FaTag } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+import { FaTags } from "react-icons/fa";
+
 import './HP_Product.css';
 
 const rating = 3.6;
+
+// const offer = [];
+const offer = ['Get 200Rs Off', 'Get 300Rs Off', 'Get 400Rs Off', 'Get 500Rs Off' , 'Get 600Rs Off' ];
 
 export default function HP_Product() {
     return (
@@ -38,10 +43,23 @@ export default function HP_Product() {
                         </span>
                     </div>
                     <div className="d-flex flex flex-column">
-                        <h6>Available Offers</h6>
-                        <div className="mx-2">
-                            <FaTag className="text-success"></FaTag>
-                        </div>
+                    {offer.length !== 0 ? (
+                        <>
+                            <h6>Available Offers</h6>
+                            <div className="mx-2">
+                                {offer.map((data, index) => (
+                                    <>
+                                    <FaTags className="text-danger  mx-2"></FaTags>
+                                    <span key={index}>{data}</span>
+                                    <br/>
+                                    </>
+                                ))}
+                            </div>
+                        </>
+                    ) : (
+                        <></>
+                        )
+                    }
                     </div>
                 </div>
             </div>
