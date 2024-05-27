@@ -4,7 +4,9 @@ import { FaTags } from "react-icons/fa";
 
 import './HP_Product.css';
 
-const rating = 3.6;
+const rating = 5;
+const total_rating = 3;
+const total_reviews = 2;
 
 // const offer = [];
 const offer = ['Get 200Rs Off', 'Get 300Rs Off', 'Get 400Rs Off', 'Get 500Rs Off' , 'Get 600Rs Off' ];
@@ -26,20 +28,25 @@ export default function HP_Product() {
                     </div>
                     <div className="d-flex flex flex-row">
                         <span className={`d-flex flex`}>
-                            {rating > 0 ?
+                        {total_rating > 0 ?
+                            <>
+                            {rating >= 0 ?
                             <>
                             <div style={{height: "25px"}} className={`p-1 d-flex flex ${rating >= 3.5 ? 'bg-success' : rating <= 1 ? 'bg-danger' : 'bg-warning'} rounded rounded-2`}>
                                 <h6 className="text-light ">{rating}</h6>
                                 <FaStar className="text-light mx-2 "></FaStar>
                             </div>
-                            <p className='text-secondary mx-2'>1,212 Rating</p>
-                            <p>12 Reviews</p>
+                            <p className="text-secondary mx-2">Ratings {total_rating} </p>
+                            <p className="text-secondary mx-2">Reviews {total_reviews}</p>
                             </>
                             :
                             <> 
                             <p>No Ratings yet...</p>
                             </>
-                        }
+                            }
+                        </>
+                        :<><p>No Ratings yet...</p></>
+                    }
                         </span>
                     </div>
                     <div className="d-flex flex flex-column">
