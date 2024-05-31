@@ -9,8 +9,10 @@ import OtherTwo from './Othertwo'
 function App(){
   return(
     <>
-   <OtherTwo/>
-  </>
+      <HP_Header/>
+        <Outlet/>
+      <HP_Footer/>
+    </>
   )
 }
 
