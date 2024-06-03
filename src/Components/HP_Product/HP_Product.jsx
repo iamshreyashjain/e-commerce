@@ -17,8 +17,8 @@ import iphoneFour from "../../assets/images/iphone13thumbnail_4.jpg";
 
 import "./HP_Product.css";
 
-const rating =1;
-const total_rating =0
+const rating = 5;
+const total_rating =1;
 const total_reviews = 2;
 
 const op = 60000;
@@ -47,25 +47,24 @@ export default function HP_Product() {
       <>
         <div className="mt-5"></div>
         {/* In this a page is divided into two parts */}
-        <div className="d-flex flex flex-row justify-content-between mx-5 p-2 shadow shadow-2">
+        <div className="d-flex flex flex-row justify-content-between mx-5 p-2 shadow shadow-2 ">
          {/* Section I */}
-          <div className="col-lg-6 col-md-4 text-center">
-            <div className="d-flex flex col-lg-4 justify-content-between mx-2 m-auto ">
+          <div className="col-xl-3 col-lg-2 col-md-3 col-sm-6 col-3 text-center  ">
+            <div className="d-flex flex col-lg-4 justify-content-between mx-2 m-auto  ">
               {imgArr.length > 0 ? (
-                <div className="d-flex flex-column m-auto border border-1">
+                <div className="d-flex flex-column col-xl-10 col-lg-12 ">
                   {imgArr.map((data, index) => (
                     <div
                       key={index}
                       onMouseEnter={() => handleOnClick(index)}
                       className={selectedIndex === index ? "border border-2  border-primary-subtle": ""}
                     >
-                      <img src={data} alt={`Thumbnail ${index + 1}`} width="100px" height="100px" className="my-2"/>
+                      <img src={data} alt={`Thumbnail ${index + 1}`} className="col-xl-12 col-lg-12 my-2"/>
                     </div>
                   ))}
                 </div>
               ) : null}
-              <div className="col-lg-1"></div>
-              <div className="border border-2 align-content-center">
+              <div className="border border-2 align-content-center mx-2">
               <ReactImageMagnify
                 {...{
                   smallImage: {
@@ -88,7 +87,7 @@ export default function HP_Product() {
           </div>
   
             {/* Section II */}
-          <div className="d-flex flex flex-column col-lg-6 col-md-6">
+          <div className="d-flex flex flex-column col-xl-6 col-lg-4 col-md-6 border border-1">
             <div className="d-flex flex ">
               <h3>Apple iPhone 13 (Starlight, 128 GB)</h3>
               <FiShare2 />
@@ -106,7 +105,7 @@ export default function HP_Product() {
                     {rating >= 0 ? (
                       <>
                         <div style={{ height: "25px" }} className={`p-1 d-flex flex ${ rating >= 3.5 ? "bg-success" : rating <= 1 ? "bg-danger" : "bg-warning"} rounded rounded-2`}>
-                          <h6 className="text-light">{rating}</h6>
+                          <h6 className="text-light ">{rating}</h6>
                           <FaStar className="text-light mx-2" />
                         </div>
                         <p className="text-secondary mx-2">Ratings {total_rating}</p>

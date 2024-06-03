@@ -1,9 +1,9 @@
-import tv from "../../assets/images/tv.jpg"
-import sugar from "../../assets/images/sugar.jpg"
-import headphone from "../../assets/images/headphone.jpg"
+import tv from "../../assets/images/tv.avif"
+import sugar from "../../assets/images/sugar.avif"
+import headphone from "../../assets/images/headphone.avif"
 import mobile from "../../assets/images/mobile.jpg"
 import Lifestyle from "../../assets/images/Lifestyle.avif"
-import fashion from "../../assets/images/fashion.jpg"
+import fashion from "../../assets/images/fashion.avif"
 
 
 import "./HP_Categories.css"
