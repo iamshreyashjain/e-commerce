@@ -2,6 +2,13 @@ import { useState } from 'react';
 import { FaStar, FaTags, FaShoppingCart, FaCreditCard } from 'react-icons/fa';
 import { MdCurrencyRupee } from 'react-icons/md';
 import ReactImageMagnify from 'react-image-magnify';
+import { FaRegHeart } from "react-icons/fa";
+import { PiShareFatBold } from "react-icons/pi";
+
+
+import { FaHeart } from "react-icons/fa6";
+
+
 
 // White 
 import iphone13 from '../../assets/images/iphone13.jpg';
@@ -9,6 +16,7 @@ import iphone13One from '../../assets/images/iphone13_thumbnail_1.jpg';
 import iphone13Two from '../../assets/images/iphone13thumbnail_2.jpg';
 import iphone13Three from '../../assets/images/iphone13thumbnail_3.jpg';
 import iphone13Four from '../../assets/images/iphone13thumbnail_4.jpg';
+
 
 //Blue
 import blueIphoneOne from '../../assets/images/iPhone_Variants/blue/blueiphoneOne.jpg'
@@ -35,7 +43,6 @@ const total_rating = 1;
 const total_reviews = 2;
 
 const offer = [
-  'Get 200Rs Off',
   'Get 300Rs Off',
   'Get 400Rs Off',
   'Get 500Rs Off',
@@ -85,6 +92,11 @@ export default function HP_Product() {
   const [selectedRamVariant, setSelectedRamVariant] = useState(selectedColorVariant.rams[0]);
   const [gallery, setGallery] = useState(selectedRamVariant.images[0]);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [like, setLike] = useState(false)
+  
+  
+  
+
 
   const handleColorChange = (colorVariant) => {
     setSelectedColorVariant(colorVariant);
@@ -138,6 +150,17 @@ export default function HP_Product() {
     console.log('Proceed to buy the item');
   };
 
+  const handleLikeButton = () =>{
+    if(like !== true){
+      setLike(true)
+      console.log('true');
+      }
+      else{
+        setLike(false)
+        console.log('false');
+    }
+  }
+
   return (
     <>
       <div className="mt-5"></div>
@@ -177,8 +200,13 @@ export default function HP_Product() {
         </div>
 
         <div className="d-flex flex-column col-lg-6 mt-3 mt-lg-0">
-          <div className="d-flex flex">
+          <div className="d-flex flex justify-content-between">
             <h4>Apple iPhone 13 ({selectedColorVariant.color}, {selectedRamVariant.ram})</h4>
+            <h4 className='d-flex flex justify-content-between col-lg-1 col-md-1 col-sm-1 col-1  mx-3'>
+            {like ? <FaHeart onClick={handleLikeButton}  color="red"/> : <FaRegHeart onClick={handleLikeButton}  />}
+            <PiShareFatBold />
+
+            </h4>
           </div>
 
           <div className="d-flex flex justify-content-between">
@@ -242,7 +270,7 @@ export default function HP_Product() {
                   src={variant.rams[0].images[0]}
                   alt={variant.color}
                   onClick={() => handleColorChange(variant)}
-                  className={`col-lg-2 col-md-1 col-sm-1 col-2 mx-1 img-fluid   rounded rounded-circle shadow shadow-2  ${variant.color === selectedColorVariant.color ? 'border border-3 border-info' : 'border border-2  border-info-subtle'}`}
+                  className={`col-lg-2 col-md-1 col-sm-1 col-2 mx-1 img-fluid   rounded rounded-circle shadow shadow-2  ${variant.color === selectedColorVariant.color ? 'border border-3 border-info opacity-100' : 'border border-2 opacity-75 border-info-subtle'}`}
                 />
               ))}
             </div>
@@ -262,8 +290,8 @@ export default function HP_Product() {
           </div>
 
           <div className="d-flex flex-lg-row flex-column mt-3">
-          <button className="btn btn-outline-primary m-1 p-3 flex-fill shadow shadow-1" onClick={handleAddToCart}><FaShoppingCart className="me-2" /> Add to Cart</button>
-            <button className="btn btn-primary m-1 p-3 flex-fill shadow shadow-1" onClick={handleBuyNow}><FaCreditCard className="me-2" /> Buy Now</button>
+          <button className="btn btn-warning text-white m-1 p-3 flex-fill shadow shadow-1" onClick={handleAddToCart}><FaShoppingCart className="me-2" /> Add to Cart</button>
+            <button className=" btn_Buybutton text-white m-1 p-3 flex-fill shadow shadow-1" onClick={handleBuyNow}><FaCreditCard className="me-2" /> Buy Now</button>
           </div>
         </div>
       </div>

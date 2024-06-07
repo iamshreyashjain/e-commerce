@@ -48,3 +48,12 @@
     }
   }
   
+
+  .btn_Buybutton{
+    background-color: rgba(255, 68, 0, 0.9);
+    border: none;
+    border-radius: 5px;
+  }
+  .btn_Buybutton:hover{
+    background-color: orangered;
+  }
