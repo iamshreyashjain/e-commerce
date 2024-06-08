@@ -119,7 +119,7 @@ export default function HP_Product() {
   const displayPrice = (ramVariant) => {
     if (ramVariant.selprice) {
       return (
-        <div className="d-flex flex-row align-items-end">
+        <div className="d-flex flex-row align-items-center">
           <h4>
             <MdCurrencyRupee className="mb-1" />
             {ramVariant.selprice}
@@ -150,10 +150,10 @@ export default function HP_Product() {
     console.log('Proceed to buy the item');
   };
 
-  const handleLikeButton = () =>{
+  const handleLikeButton = (e) =>{
     if(like !== true){
       setLike(true)
-      console.log('true');
+      console.log(e.target);
       }
       else{
         setLike(false)
@@ -164,7 +164,7 @@ export default function HP_Product() {
   return (
     <>
       <div className="mt-5"></div>
-      <div className="d-flex flex-lg-row flex-column overflow-scroll justify-content-between mx-5 p-2 shadow shadow-2">
+      <div className="d-flex flex-lg-row flex-column overflow-scroll justify-content-between mx-5 p-3 shadow shadow-2">
         <div className="col-lg-6">
           <div className="d-flex flex m-auto">
             {selectedRamVariant.images.length > 0 && (
@@ -270,7 +270,7 @@ export default function HP_Product() {
                   src={variant.rams[0].images[0]}
                   alt={variant.color}
                   onClick={() => handleColorChange(variant)}
-                  className={`col-lg-2 col-md-1 col-sm-1 col-2 mx-1 img-fluid   rounded rounded-circle shadow shadow-2  ${variant.color === selectedColorVariant.color ? 'border border-3 border-info opacity-100' : 'border border-2 opacity-75 border-info-subtle'}`}
+                  className={`col-lg-2 col-md-1 col-sm-1 col-2 mx-1 img-fluid   rounded rounded-circle shadow shadow-2  ${variant.color === selectedColorVariant.color ? 'border border-3 border-info opacity-100' : 'border border-2  border-info-subtle'}`}
                 />
               ))}
             </div>

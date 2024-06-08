@@ -21,7 +21,7 @@ export default function HP_TopRatedProducts() {
     {
       img: speaker,
       brand: "Bose",
-      name: "Bose Speaker"
+      name: "Bose Speaker Speaker Speaker Speaker"
     },
     {
       img: watch,
@@ -45,8 +45,8 @@ export default function HP_TopRatedProducts() {
 
       <div className="d-flex flex flex-row overflow-auto mx-5 shadow shadow-1">
         {topProducts.map((data, index) => (
-          <div className="col-lg col-md-3 col-sm-4 col-4  m-3" key={index}>
-            <div className="d-flex flex flex-column  border border-1 rounded rounded-2">
+          <div className="col-lg col-md-3 col-sm-4 col-4  m-3 " key={index}>
+            <div className="d-flex flex flex-column  border border-1 rounded rounded-2 align-items-center" style={{minHeight:"320px"}}>
             <Link to= "/ecomm/product/iphone13" className="text-decoration-none text-dark">
               <img
                 src={data.img}
@@ -55,7 +55,7 @@ export default function HP_TopRatedProducts() {
                 width="100%"
                 height="220px"
               />
-              <div className="text-center my-1">
+              <div className="text-center my-1 text-break">
                 <h6>{data.brand}</h6>
                 <p>{data.name}</p>
               </div>

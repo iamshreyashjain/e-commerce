@@ -47,7 +47,7 @@
     display: none;
 }
   .navbar_icon{
-    transform: scale(2);
+    transform: scale(1.5);
   }
 }
 
@@ -58,7 +58,7 @@
     display: none;
   }
   .navbar_icon{
-    transform: scale(2);
+    transform: scale(1.5);
   }
 }
 

@@ -27,7 +27,7 @@ export default function  HP_Header(){
       </div>
       
       {/*Three*/}
-        <div className='col-lg-5 col-md-5 col-sm-5 col px-2'>
+        <div className='col-lg-5 col-md-5 col-sm-5 col-3 px-2'>
           <div className="row mt-2 ">
 
            {/*Three-One => date: 12/05/2024  Dynamic need to be replaced*/}
