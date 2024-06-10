@@ -17,6 +17,7 @@ import VP_WelcomeMessage from './Components/VP_WelcomeMessage/VP_WelcomeMessage.
 import VP_LoginPage from './Components/VP_LoginPage/VP_LoginPage.jsx';
 import VP_Register from './Components/VP_Register/VP_Register.jsx';  
 import VP_LoginOTP from './Components/VP_LoginOTP/VP_LoginOTP.jsx';
+import HP_Search from './Components/HP_Search/HP_Search.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,9 +25,10 @@ const router = createBrowserRouter([
     element: <App />, 
     children: [
       { path: '/ecomm/', element: <HP_HomeScreen /> }, 
-      { path: '/ecomm/customerlogin', element: <HP_Login /> },
+      { path: '/ecomm/customerlogin', element: <HP_Login/> },
+      { path: '/ecomm/search', element: <HP_Search /> },
       { path: '/ecomm/customer/registration', element: <HP_Register /> },
-      { path: '/ecomm/product/iphone13', element: <HP_Product /> }
+      { path: '/ecomm/product/iphone13', element: <HP_Product /> },
     ]
   },
   {
