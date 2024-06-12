@@ -1,4 +1,27 @@
-#imageMagnifyer{
-    width: 600px;
-    height: 600px;
-}
+.card-fixed {
+    width: 300px; /* Fixed width for cards */
+    height: 400px; /* Fixed height for cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .image-container {
+    height: 250px; /* Fixed height for the image container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures the image fits within the container */
+  }
+  
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+  

@@ -4,6 +4,7 @@ import speaker from "../../assets/images/boseSystem.jpg";
 import watch from "../../assets/images/appleWatch.jpg";
 import lcd from "../../assets/images/lcd.jpg";
 import { GoChevronRight } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 export default function HP_TopSellingProducts() {
   const topProducts = [
@@ -32,6 +33,8 @@ export default function HP_TopSellingProducts() {
       brand: "Samsung",
       name: "Samsung LCD"
     },
+
+    
     
   
     
@@ -48,7 +51,8 @@ export default function HP_TopSellingProducts() {
       <div className="d-flex flex flex-row overflow-auto mx-5 shadow shadow-1">
         {topProducts.map((data, index) => (
           <div className="col-lg col-md-3 col-sm-4 col-4  m-3" key={index}>
-            <div className="d-flex flex flex-column  border border-1 rounded rounded-2">
+            <div className="d-flex flex flex-column  border border-1 rounded rounded-2 align-items-center" style={{minHeight:"320px"}}>
+            <Link to= "/ecomm/product/iphone13" className="text-decoration-none text-dark">
               <img
                 src={data.img}
                 alt={data.name}
@@ -60,6 +64,7 @@ export default function HP_TopSellingProducts() {
                 <h6>{data.brand}</h6>
                 <p>{data.name}</p>
               </div>
+              </Link> 
             </div>
           </div>
         ))}
