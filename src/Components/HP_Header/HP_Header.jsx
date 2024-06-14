@@ -45,7 +45,7 @@ export default function  HP_Header(){
             {/*Three-Two =>  */}
             <div className="col-lg-3 col-md-3 col-sm-3 col-4">
               <button className="btn btn-primary">
-                <Link to="" className="text-decoration-none text-white">
+                <Link to="/ecomm/cart" className="text-decoration-none text-white">
                   <BsCart3 className="mx-2 navbar_icon"/>
                   {/* Custom CSS 'navbar_text'*/}
                   <span className="navbar_text">Cart</span>

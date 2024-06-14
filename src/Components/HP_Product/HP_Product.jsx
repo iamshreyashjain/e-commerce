@@ -94,9 +94,6 @@ export default function HP_Product() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [like, setLike] = useState(false)
   
-  
-  
-
 
   const handleColorChange = (colorVariant) => {
     setSelectedColorVariant(colorVariant);

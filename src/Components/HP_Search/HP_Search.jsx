@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import './HP_Search.css';
 import { FaRupeeSign, FaRegHeart } from 'react-icons/fa';
+import { FaSort } from "react-icons/fa";
+
 import { IoMdCart } from 'react-icons/io';
 
 // Assuming the images are correctly imported
@@ -9,7 +11,7 @@ import { IoMdCart } from 'react-icons/io';
 import iphonePro from '../../assets/images/iphonePro.jpg';
 import iphone15 from '../../assets/images/iphone15.jpg';
 import iq from '../../assets/images/mobile2.jpg';
-import mobile3 from '../../assets/images/mobile3.jpg';
+import Xiamoi from '../../assets/images/Xiamoi.jpg';
 import nazaro from '../../assets/images/nazaro.jpg';
 import iphone13 from '../../assets/images/iphone13.jpg';
 import redmi from '../../assets/images/Redmi.jpg';
@@ -46,31 +48,31 @@ export default function HP_Search() {
     const products = [
         { 
             img: iphone15, 
-            brand: 'Levis', 
-            description: 'Levis is the best of known jeans by of known jeans by...', 
-            price: 2000 
+            brand: 'Apple', 
+            description: 'Apple iPhone 15 with...', 
+            price: 72000 
         },
         { 
             img: iphone13,
-            brand: 'Levis',
-            description: 'Levis is the best of known jeans by of known jeans by...', 
-            price: 2000
+            brand: 'Apple',
+            description: 'Apple iPhone 13 with...', 
+            price: 46000
         },
         { 
             img: iphonePro,
-            brand: 'Levis', 
-            description: 'Levis is the best of known jeans by of known jeans by...', 
-            price: 2000 
+            brand: 'Apple', 
+            description: 'Apple iPhone 15Pro with...', 
+            price: 134000 
         },
         { 
             img: iq, 
-            brand: 'Levis', 
+            brand: 'IQ', 
             description: 'Levis is the best of known jeans by of known jeans by...', 
             price: 2000 
         },
         { 
-            img: mobile3,
-            brand: 'Levis', 
+            img: Xiamoi,
+            brand: 'Xiamoi', 
             description: 'Levis is the best of known jeans by of known jeans by...',
             price: 2000 
         },
@@ -102,13 +104,13 @@ export default function HP_Search() {
 
     return (
         <>
-            <div className="d-flex justify-content-between overflow-scroll mx-5 mt-5">
-                <div className="d-flex flex-column gap-4 col-lg-3">
+            <div className="d-flex justify-content-between overflow-scroll mx-5 mt-5 ">
+                <div className="d-flex flex-column gap-5 col-lg-3 col-md-3 col-sm-4 ">
                     <div className="accordion" id="sortAccordion">
                         <div className="accordion-item overflow-hidden">
                             <h2 className="accordion-header">
                                 <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sortCollapse" aria-expanded="true" aria-controls="sortCollapse">
-                                    <strong>Sort By :</strong> {sort}
+                                    <strong><FaSort/><span className='lim'>Sort By: </span></strong> {sort}
                                 </button>
                             </h2>
                             <div id="sortCollapse" className="accordion-collapse collapse" data-bs-parent="#sortAccordion">
@@ -180,15 +182,14 @@ export default function HP_Search() {
                 </div>
                 <br /><br />
 
-                <div className="d-flex flex-column col-lg-12">
-                    <div className="d-flex flex-wrap gap-2 mx-3">
+                    <div className="d-flex flex-wrap col-lg-10 col-md-9 col-sm-6 col-6 gap-4 mx-5">
                         {products.map((product, index) => (
-                            <div className="d-flex flex-column border col-lg-3 col-md-5" key={index}>
+                            <div className="d-flex flex-column border col-lg-3 col-md-5 do" key={index}>
                                 <div className="text-center col-lg-12 pt-2">
                                     <img
                                         src={product.img}
                                         className="img-fluid"
-                                        style={{ minHeight: '340px', maxHeight: '340px' }}
+                                        style={{ minHeight: '340px', maxHeight: '340px', objectFit :'cover' }}
                                         alt={product.brand}
                                     />
                                 </div>
@@ -211,7 +212,6 @@ export default function HP_Search() {
                         ))}
                     </div>
                 </div>
-            </div>
         </>
     );
 }
