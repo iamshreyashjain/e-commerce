@@ -1,7 +1,14 @@
 import iphone13 from '../../assets/images/iphone13.jpg';
 import shirt from '../../assets/images/shirt.jpg';
 import { RiDeleteBin5Fill } from "react-icons/ri";
-import { BsBoxes } from "react-icons/bs";
+import {Link} from 'react-router-dom'
+import { HiMiniCurrencyRupee } from "react-icons/hi2";
+
+import { RiVisaFill } from "react-icons/ri";
+import { IoQrCodeOutline } from "react-icons/io5";
+
+import { FaGooglePay } from "react-icons/fa";
+
 
 import onePlus from '../../assets/images/onePlus.jpg';
 
@@ -23,13 +30,13 @@ export default function HP_Cart(){
                     </div>
                     <div className="d-flex flex-column col-lg-8 col-md-8 col-sm-8 col-8  p-4">
                         <div className='d-flex flex justify-content-between col-lg-12 col-md-12 col-sm-12 col-12'>
-                            <h5 className='overflow-scroll text-break'>iPhone 13 iPhone 13 iPhone 13 iPhone 13 iPhone 13 iPhone 13  </h5>
+                            <h5 className='overflow-scroll text-break'>iPhone 13</h5>
                             <h5>Rs: 54000</h5>
                         </div>
                         <h6 className='text-secondary fw-normal'>Seller Name : Apple</h6>
                         <h6 className='text-secondary fw-normal'>Ram : 64</h6>
                         <h6 className='text-secondary fw-normal'>Color : Starlight White</h6>
-                        <div className='col-lg-12 d-flex flex justify-content-between'>
+                        <div className='col-lg-12 mt-3 d-flex flex justify-content-between'>
                         <select className="col-lg-2 col-md-2 col-sm-4 col-6  p-2 ">
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -38,13 +45,12 @@ export default function HP_Cart(){
                             <option value="5">5</option>        
                             <option value="6">6</option>
                         </select>
-                        <button className='btn btn-danger align-content-center px-3'><RiDeleteBin5Fill size={20} className='mb-1'/></button>
+                        <button className='btn btn-danger align-content-center px-3 '><RiDeleteBin5Fill size={20} className='mb-1'/></button>
                         </div>
                     </div>
                     <div>
                     </div>
                 </div>
-
                
                 <div className="d-flex flex border border shadow" style={{maxHeight: '220px', minHeight: "220px", minWidth: '100px'}}>
                 <div className="d-flex flex justify-content-center align-items-center col-lg-4 col-md-4 col-sm-4  col-4   border-end border-1"> 
@@ -77,8 +83,6 @@ export default function HP_Cart(){
                 </div>
             </div>
 
-
-
             <div className="d-flex flex border border shadow" style={{maxHeight: '220px', minHeight: "220px", minWidth: '100px'}}>
             <div className="d-flex flex justify-content-center align-items-center col-lg-4 col-md-4 col-sm-4  col-4   border-end border-1"> 
                 <img 
@@ -108,21 +112,8 @@ export default function HP_Cart(){
             </div>
             <div>
             </div>
-        </div>
-           
-                 
-
-
-            
-                
-
-                
-                
-
-                
-            </div>
-
-            
+        </div>   
+         </div>
 
 
             <div className="col-lg-4 col-md-4 shadow border "style={{maxHeight: '400px', minHeight : '400px'}} >
@@ -152,8 +143,14 @@ export default function HP_Cart(){
                     <p>500</p>
                 </div>
                 <div className="d-grid gap-2 mx-2">
-                <button className="btn btn-primary" type="button">Proceed Checkout <BsBoxes size={22} />
-                </button>
+                <Link to = "/ecomm/address">
+                <button className="btn btn-primary col-lg-12" type="button">
+                    Proceed Payment <RiVisaFill size={22}/> <FaGooglePay size={22} /> <IoQrCodeOutline /> <HiMiniCurrencyRupee />
+
+
+
+                    </button>
+                    </Link>
               </div>
             </div>
         </div>
