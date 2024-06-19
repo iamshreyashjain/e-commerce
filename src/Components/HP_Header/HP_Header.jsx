@@ -46,7 +46,7 @@ export default function  HP_Header(){
             <div className="col-lg-3 col-md-3 col-sm-3 col-4">
               <button className="btn btn-primary">
                 <Link to="/ecomm/cart" className="text-decoration-none text-white">
-                  <BsCart3 className="mx-2 navbar_icon"/>
+                  <BsCart3 className="mx-2 mb-1 navbar_icon"/>
                   {/* Custom CSS 'navbar_text'*/}
                   <span className="navbar_text">Cart</span>
                 </Link>
@@ -57,7 +57,7 @@ export default function  HP_Header(){
             <div className="col-lg-6 col-md-6 col-sm-3 col-4">
               <button className="btn btn-primary">
                 <Link to="/ecomm/vendor" className="text-decoration-none text-white">
-                  <BsShop className="mx-2 navbar_icon"/>
+                  <BsShop className="mx-2 mb-1 navbar_icon"/>
                   {/* Custom CSS 'navbar_text'*/}
                   <span className="navbar_text">Become a Vendor</span>
                 </Link>

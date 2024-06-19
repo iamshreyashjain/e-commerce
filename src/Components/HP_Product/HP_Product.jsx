@@ -5,10 +5,7 @@ import ReactImageMagnify from 'react-image-magnify';
 import { FaRegHeart } from "react-icons/fa";
 import { PiShareFatBold } from "react-icons/pi";
 
-
 import { FaHeart } from "react-icons/fa6";
-
-
 
 // White 
 import iphone13 from '../../assets/images/iphone13.jpg';
@@ -16,7 +13,6 @@ import iphone13One from '../../assets/images/iphone13_thumbnail_1.jpg';
 import iphone13Two from '../../assets/images/iphone13thumbnail_2.jpg';
 import iphone13Three from '../../assets/images/iphone13thumbnail_3.jpg';
 import iphone13Four from '../../assets/images/iphone13thumbnail_4.jpg';
-
 
 //Blue
 import blueIphoneOne from '../../assets/images/iPhone_Variants/blue/blueiphoneOne.jpg'
@@ -30,7 +26,6 @@ import greenIphoneOne from '../../assets/images/iPhone_Variants/Green/Greeniphon
 import greenIphoneTwo from '../../assets/images/iPhone_Variants/Green/GreeniphoneTwo.jpg'
 import greenIphoneThree from '../../assets/images/iPhone_Variants/Green/GreeniphoneThree.jpg'
 import greenIphoneFour from '../../assets/images/iPhone_Variants/Green/GreeniphoneFour.jpg'
-
 
 //Pink
 import pinkIphoneOne from '../../assets/images/iPhone_Variants/pink/pinkiphoneOne.jpg'
@@ -90,6 +85,7 @@ import './HP_Product.css';
 export default function HP_Product() {
   const [selectedColorVariant, setSelectedColorVariant] = useState(variants[0]);
   const [selectedRamVariant, setSelectedRamVariant] = useState(selectedColorVariant.rams[0]);
+  
   const [gallery, setGallery] = useState(selectedRamVariant.images[0]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [like, setLike] = useState(false)
@@ -199,11 +195,15 @@ export default function HP_Product() {
         <div className="d-flex flex-column col-lg-6 mt-3 mt-lg-0">
           <div className="d-flex flex justify-content-between">
             <h4>Apple iPhone 13 ({selectedColorVariant.color}, {selectedRamVariant.ram})</h4>
-            <h4 className='d-flex flex justify-content-between col-lg-1 col-md-1 col-sm-1 col-1  mx-3'>
+            <div className=' d-flex flex justify-content-end gap-1 col-lg-2 col-md-1 col-sm-1 col-1  mx-3'>
+            <button className='btn btn-outline-dark'>
             {like ? <FaHeart onClick={handleLikeButton}  color="red"/> : <FaRegHeart onClick={handleLikeButton}  />}
+            </button>
+            <button className='btn btn-outline-dark'>
             <PiShareFatBold />
+            </button>
 
-            </h4>
+            </div>
           </div>
 
           <div className="d-flex flex justify-content-between">
@@ -267,7 +267,7 @@ export default function HP_Product() {
                   src={variant.rams[0].images[0]}
                   alt={variant.color}
                   onClick={() => handleColorChange(variant)}
-                  className={`col-lg-2 col-md-1 col-sm-1 col-2 mx-1 img-fluid   rounded rounded-circle shadow shadow-2  ${variant.color === selectedColorVariant.color ? 'border border-3 border-info opacity-100' : 'border border-2  border-info-subtle'}`}
+                  className={`col-lg-2 col-md-1 col-sm-1 col-2 mx-1 img-fluid object-fit-scale rounded rounded-circle shadow shadow-2  ${variant.color === selectedColorVariant.color ? 'border border-3 border-info opacity-100' : 'border border-2  border-info-subtle'}`}
                 />
               ))}
             </div>
