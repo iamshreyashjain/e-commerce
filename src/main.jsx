@@ -20,6 +20,7 @@ import VP_LoginOTP from './Components/VP_LoginOTP/VP_LoginOTP.jsx';
 import HP_Search from './Components/HP_Search/HP_Search.jsx';
 import HP_Cart from './Components/HP_Cart/HP_Cart.jsx';
 import HP_Address from './Components/HP_Address/HP_Address.jsx';
+import HP_Wishlist from './Components/HP_Wishlist/HP_Wishlist.jsx';
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
       { path: '/ecomm/product/iphone13', element: <HP_Product /> },
       { path: '/ecomm/cart', element: <HP_Cart/> },
       { path: '/ecomm/address', element: <HP_Address/> },
+      { path: '/ecomm/wishlist', element: <HP_Wishlist/> },
     ]
   },
   {

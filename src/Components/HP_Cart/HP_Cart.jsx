@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { RiDeleteBin5Fill, RiVisaFill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import { HiMiniCurrencyRupee } from "react-icons/hi2";
 import { IoQrCodeOutline } from "react-icons/io5";
+import { BsCart3 } from "react-icons/bs";
+
 import { FaGooglePay } from "react-icons/fa";
 import iphone13 from '../../assets/images/iphone13.jpg';
 
@@ -20,6 +22,7 @@ export default function HP_Cart() {
     ];
 
     const [productsInCart, setProductsInCart] = useState(initialProducts);
+    
     const totalAmount = productsInCart.reduce((total, product) => total + product.amount, 0);
     const discount = 500;
     const deliveryCharge = 50;
@@ -33,10 +36,28 @@ export default function HP_Cart() {
 
     return (
         <>
-            <div className="mt-5 mx-5">
-                <h2>My Shopping Cart</h2>
+        {productsInCart.length === 0 ?
+            <>
+            <div className="mt-5  text-center">
+            <h2 className= " border-bottom border-2 border-primary py-2 mx-5">Please add Products in your Cart</h2> 
+            <div className='d-flex flex justify-content-center col-lg-12 mt-3'>
+            <div className='col-lg-4'>
+            <Link to = "/ecomm">
+            <button className='btn btn-outline-primary mx-2'>HomePage</button>
+            </Link>
+            <Link to="/ecomm/wishlist">
+            <button className='btn btn-primary'>Go to Wishlist</button>
+            </Link>
             </div>
-            <div className="d-flex flex-lg-row flex-md-row flex-sm-column flex-column mx-5 mt-3 gap-lg-1 gap-4">
+            </div>
+            </div>
+             </>
+            :  
+            <>
+            <div className="mt-5 mx-5">
+                <h2 className= " border-bottom border-2 border-primary py-2" >My Shopping Cart <BsCart3/> </h2>
+            </div>
+            <div className="d-flex flex-lg-row flex-md-row flex-sm-column flex-column mx-5 mt-4 gap-lg-1 gap-4">
                 <div className='d-flex flex-column col-lg-8 col-md-8 gap-4'>
                     {productsInCart.map((product) => (
                         <div key={product.id} className="d-flex flex border border shadow" style={{ maxHeight: '220px', minHeight: "220px", minWidth: '100px' }}>
@@ -104,6 +125,7 @@ export default function HP_Cart() {
                     </div>
                 </div>
             </div>
+</>}
         </>
     );
 }

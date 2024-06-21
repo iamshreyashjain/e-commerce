@@ -133,9 +133,10 @@ export default function HP_Product() {
     }
   };
 
+  const [cartText, setCartText] = useState("Add to cart")
+
   const handleAddToCart = () => {
-    // Logic to add item to cart
-    console.log('Item added to cart');
+    setCartText("Added")
   };
 
   const handleBuyNow = () => {
@@ -195,7 +196,7 @@ export default function HP_Product() {
         <div className="d-flex flex-column col-lg-6 mt-3 mt-lg-0">
           <div className="d-flex flex justify-content-between">
             <h4>Apple iPhone 13 ({selectedColorVariant.color}, {selectedRamVariant.ram})</h4>
-            <div className=' d-flex flex justify-content-end gap-1 col-lg-2 col-md-1 col-sm-1 col-1  mx-3'>
+            <div className=' d-flex flex justify-content-end gap-1 col-lg-2 col-md-1 col-sm-1 col-1  '>
             <button className='btn btn-outline-dark'>
             {like ? <FaHeart onClick={handleLikeButton}  color="red"/> : <FaRegHeart onClick={handleLikeButton}  />}
             </button>
@@ -208,7 +209,7 @@ export default function HP_Product() {
 
           <div className="d-flex flex justify-content-between">
             <p>Apple</p>
-            <p className="mx-3">Apple Inc.</p>
+            <p className="">Apple Inc.</p>
           </div>
 
           <div className="d-flex flex flex-row">
@@ -286,9 +287,9 @@ export default function HP_Product() {
             </div>
           </div>
 
-          <div className="d-flex flex-lg-row flex-column mt-3">
-          <button className="btn btn-warning text-white m-1 p-3 flex-fill shadow shadow-1" onClick={handleAddToCart}><FaShoppingCart className="me-2" /> Add to Cart</button>
-            <button className=" btn_Buybutton text-white m-1 p-3 flex-fill shadow shadow-1" onClick={handleBuyNow}><FaCreditCard className="me-2" /> Buy Now</button>
+          <div className="d-flex flex-lg-row flex-column gap-1 mt-3">
+          <button className="btn btn-warning text-white p-3 col-lg-6 shadow shadow-1" onClick={handleAddToCart}><FaShoppingCart className="" /> {cartText}</button>
+            <button className=" btn_Buybutton text-white p-3 col-lg-6  shadow shadow-1" onClick={handleBuyNow}><FaCreditCard className="" /> Buy Now</button>
           </div>
         </div>
       </div>

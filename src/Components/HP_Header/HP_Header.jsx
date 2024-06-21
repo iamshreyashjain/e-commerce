@@ -33,35 +33,35 @@ export default function  HP_Header(){
            {/*Three-One => date: 12/05/2024  Dynamic need to be replaced*/}
            {/*Three-One => If Logged in Login should be replaced with user's Name*/}
           <div className="col-lg-3 col-md-3 col-sm-3 col-4">
-          <button className="btn btn-primary">
-            <Link to ="/ecomm/customerlogin" className="text-decoration-none text-white">
+          <Link to ="/ecomm/customerlogin" className="text-decoration-none text-white">
+           <button className="btn btn-primary">
             {/* Custom CSS 'navbar_icon' => to scale*/} 
               <BiUser className="mx-2 navbar_icon"/>
               {/* Custom CSS 'navbar_text'*/} 
               <span className="navbar_text">Login</span>
+              </button>
             </Link>
-          </button>
           </div>
             {/*Three-Two =>  */}
             <div className="col-lg-3 col-md-3 col-sm-3 col-4">
+            <Link to="/ecomm/cart" className="text-decoration-none text-white">
               <button className="btn btn-primary">
-                <Link to="/ecomm/cart" className="text-decoration-none text-white">
                   <BsCart3 className="mx-2 mb-1 navbar_icon"/>
                   {/* Custom CSS 'navbar_text'*/}
                   <span className="navbar_text">Cart</span>
-                </Link>
-              </button>
+                </button>
+              </Link>
             </div>
             
             {/*Three-Three*/}
             <div className="col-lg-6 col-md-6 col-sm-3 col-4">
+            <Link to="/ecomm/vendor" className="text-decoration-none text-white">
               <button className="btn btn-primary">
-                <Link to="/ecomm/vendor" className="text-decoration-none text-white">
                   <BsShop className="mx-2 mb-1 navbar_icon"/>
                   {/* Custom CSS 'navbar_text'*/}
                   <span className="navbar_text">Become a Vendor</span>
-                </Link>
               </button>
+            </Link>
             </div>
           </div>
         </div>
