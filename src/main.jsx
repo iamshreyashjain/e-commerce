@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { RouterProvider } from 'react-router-dom';
 import { createBrowserRouter } from 'react-router-dom';
 
+import { FirebaseProvider } from './context/firebase.jsx';
+
 // HP_Routes
 import HP_Login from './Components/HP_Login/HP_Login.jsx';
 import HP_Register from './Components/HP_Register/HP_Register.jsx';
@@ -52,6 +54,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <FirebaseProvider>
     <RouterProvider router={router} />
+    </FirebaseProvider>
   </React.StrictMode>
 );

@@ -1,41 +1,122 @@
 import { Link } from "react-router-dom";
+import "./HP_Login.css";
+import { useState } from "react";
+import { signInWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { app } from "./../../context/firebase";
+import { FaGoogle } from "react-icons/fa";
 
+const googleProvider = new GoogleAuthProvider();
 
-import './HP_Login.css';
+export default function HP_Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  const auth = getAuth(app);
 
-export default function HP_Login(){
-    return(
-        <>
-        <div className="col-lg-4  col-md-4 col-sm-4 col-4 border border-1 shadow shadow-1 rounded rounded-1 my-5 m-auto p-4">
+  const signInUser = (event) => {
+    event.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((value) => {
+        console.log('done');
+        console.log(value);
+      })
+      .catch((err) => console.log(err));
+
+    setEmail('');
+    setPassword('');
+  }
+
+  const signUpWithGoogle = (event) => {
+    event.preventDefault();
+    signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        console.log('Google sign-in successful', user, token);
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.log('Google sign-in error', errorCode, errorMessage, email, credential);
+      });
+  }
+
+  return (
+    <>
+      <div className="col-lg-4 col-md-4 col-sm-4 col-4 border border-1 shadow shadow-1 rounded rounded-1 my-5 m-auto p-4">
         <form className="m-auto">
-        <div className="d-flex flex-row justify-content-between">
-          <h2 className="okay">Login</h2>
+          <div className="d-flex flex-row justify-content-between">
+            <h2 className="okay">Login</h2>
+          </div>
+          <div className="my-3">
+            <label htmlFor="exampleInputEmail1" className="form-label">
+              Email address
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
+            <div id="emailHelp" className="form-text">
+              We will never share your email with anyone else.
+            </div>
+          </div>
 
-        </div>
-        <div className="my-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-          <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-          <div id = "emailHelp" className = "form-text"> We will never share your email with anyone else.</div>
-        </div>
-        
-        <div className=" mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-          <input type="password" className="form-control" id="exampleInputPassword1"/>
-          <Link to =""  className = "form-text">Forgot Password?</Link>
-        </div>
-        
-      
-        <div className="row">
-        <div className=" col-lg-12 col-md-12 col-sm-12 col-12">
-        <Link><button type="button" className="col-lg-12 col-md-12 col-sm-12 col-12 btn btn-outline-primary mt-3">Login</button></Link>
-        <hr/>
-        <p className="text-secondary">New to family? Register here </p>
-        <Link to="/ecomm/customer/registration"> <button type="button" className="col-lg-12 col-md-12 col-sm-12 col-12 btn btn-primary mt-2">Register</button></Link>
-        </div>
-        </div>
+          <div className="mb-3">
+            <label htmlFor="exampleInputPassword1" className="form-label">
+              Password
+            </label>
+            <input
+              type="password"
+              className="form-control"
+              id="exampleInputPassword1"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+            />
+            <Link to="/forgot-password" className="form-text">
+              Forgot Password?
+            </Link>
+          </div>
+
+          <div className="row">
+            <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+              <button
+                type="button"
+                className="col-lg-12 col-md-12 col-sm-12 col-12 btn btn-outline-primary mt-3"
+                onClick={signInUser}
+              >
+                Login
+              </button>
+              <hr />
+              <p className="text-secondary">New to family? Register here</p>
+              <Link to="/ecomm/customer/registration">
+                <button
+                  type="button"
+                  className="col-lg-12 col-md-12 col-sm-12 col-12 btn btn-primary mt-2"
+                >
+                  Register
+                </button>
+              </Link>
+            </div>
+          </div>
+          <div className="mt-3">
+            <button onClick={signUpWithGoogle} className="btn btn-outline-primary col-lg-12">
+              Sign In With Google <FaGoogle className="mb-1" />
+            </button>
+          </div>
         </form>
-        </div>
-        </>
-    )
+      </div>
+    </>
+  );
 }

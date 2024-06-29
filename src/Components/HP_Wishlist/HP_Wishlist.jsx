@@ -43,7 +43,7 @@ export default function HP_Wishlist() {
         {productsInCart.length === 0 ?
             <>
             <div className="mt-5  text-center">
-            <h1>Your watchlist is empty</h1> 
+            <h1>Your Wishlist is empty</h1> 
             <div className='d-flex flex justify-content-center col-lg-12'>
             <div className='col-lg-4'>
             <Link to = "/eComm">
@@ -57,7 +57,9 @@ export default function HP_Wishlist() {
             :  
             <>
             <div className=" mt-5 mx-5 ">
-                <h2 className= "flex-fill border-bottom border-2 border-primary py-2">My Watchlist<FaHeart className ="mx-1 "  style={{color: 'red'}}/> </h2>
+                <h2 className= "flex-fill border-bottom border-2 border-primary py-2">
+                    My Wishlist<FaHeart className ="mx-1 "  style={{color: 'red'}}/>
+                </h2>
             </div>
             <div className="d-flex flex-lg-column flex-md-row flex-sm-column flex-column align-items-center justify-content-center mx-5 mt-4 gap-lg-1 gap-4">
                 <div className='d-flex flex-column col-lg-9 col-md-8 gap-4'>
