@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./HP_Login.css";
 import { useState } from "react";
 import { signInWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -10,6 +10,7 @@ const googleProvider = new GoogleAuthProvider();
 export default function HP_Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();  // Use the useNavigate hook
 
   const auth = getAuth(app);
 
@@ -19,6 +20,7 @@ export default function HP_Login() {
       .then((value) => {
         console.log('done');
         console.log(value);
+        navigate('/');  // Navigate to the homepage
       })
       .catch((err) => console.log(err));
 
@@ -36,6 +38,7 @@ export default function HP_Login() {
         // The signed-in user info.
         const user = result.user;
         console.log('Google sign-in successful', user, token);
+        navigate('/');  // Navigate to the homepage
       })
       .catch((error) => {
         // Handle Errors here.

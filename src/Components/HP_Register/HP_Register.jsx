@@ -31,7 +31,7 @@ export default function HP_Register() {
           <div className="d-flex flex-row justify-content-between">
             <h2 className="okay">Create Account</h2>
             <div className="mx-4 border border-1 rounded text-danger align-content-center goBack">
-              <Link to="/ecomm/customerlogin">
+              <Link to="/customerlogin">
                 <FcExpand />
               </Link>
             </div>

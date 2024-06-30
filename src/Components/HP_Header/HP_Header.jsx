@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { BiUser } from 'react-icons/bi';
 import { BsCart3, BsShop } from 'react-icons/bs';
 import { useFirebase } from './../../context/firebase'; // Adjust the path accordingly
+import { FaStar, FaTags, FaShoppingCart, FaCreditCard, FaHeart, FaRegHeart } from 'react-icons/fa';
 
 import logo from '../../assets/images/Logo.jpeg';
 import './HP_Header.css';
@@ -28,7 +29,7 @@ export default function HP_Header() {
       <div className="row mx-2 auto">
         {/* Logo */}
         <div className='col-lg-2 col-md-2 col-sm-2 col-2 py-2'>
-          <Link to="/ecomm/">
+          <Link to="/">
             <img src={logo} width="40px" alt="Logo" className="col rounded-circle" />
           </Link>
         </div>
@@ -53,7 +54,7 @@ export default function HP_Header() {
                   <span className="navbar_text">{loading ? 'Logging out...' : 'Logout'}</span>
                 </button>
               ) : (
-                <Link to="/ecomm/customerlogin" className="text-decoration-none text-white">
+                <Link to="/customerlogin" className="text-decoration-none text-white">
                   <button className="btn btn-primary">
                     <BiUser className="mx-2 navbar_icon" />
                     <span className="navbar_text">Login</span>
@@ -64,7 +65,7 @@ export default function HP_Header() {
 
             {/* Cart Button */}
             <div className="col-lg-3 col-md-3 col-sm-3 col-4">
-              <Link to="/ecomm/cart" className="text-decoration-none text-white">
+              <Link to="/cart" className="text-decoration-none text-white">
                 <button className="btn btn-primary">
                   <BsCart3 className="mx-2 mb-1 navbar_icon" />
                   <span className="navbar_text">Cart</span>
@@ -72,12 +73,12 @@ export default function HP_Header() {
               </Link>
             </div>
 
-            {/* Vendor Button */}
+            {/* WishList Button */}
             <div className="col-lg-6 col-md-6 col-sm-3 col-4">
-              <Link to="/ecomm/vendor" className="text-decoration-none text-white">
+              <Link to="/wishlist" className="text-decoration-none text-white">
                 <button className="btn btn-primary">
-                  <BsShop className="mx-2 mb-1 navbar_icon" />
-                  <span className="navbar_text">Become a Vendor</span>
+                  <FaRegHeart className="mx-2 mb-1 navbar_icon" />
+                  <span className="navbar_text">Yours Wishlist</span>
                 </button>
               </Link>
             </div>
