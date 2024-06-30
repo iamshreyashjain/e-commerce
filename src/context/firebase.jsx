@@ -2,6 +2,8 @@
   import { initializeApp } from "firebase/app";
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
   import { getDatabase, set, ref } from "firebase/database";
+  import { getStorage } from "firebase/storage";
+  import { getFirestore } from "firebase/firestore";
 
   // Firebase configuration
   const firebaseConfig = {
@@ -16,8 +18,13 @@
 
   // Initialize Firebase
   export const app = initializeApp(firebaseConfig);
+
   const firebaseAuth = getAuth(app);
   const database = getDatabase(app);
+  const storage = getStorage(app);
+  const firestore = getFirestore(app);
+
+  export {storage, firestore};
 
   const FirebaseContext = createContext(null);
 
