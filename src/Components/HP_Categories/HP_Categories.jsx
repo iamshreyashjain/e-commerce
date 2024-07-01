@@ -33,12 +33,12 @@ export default function HP_Categories() {
   return (
     <>
       <div className="my-5"></div>
-      <div className="d-flex flex-row justify-content-between my-2">
+      <div className="d-flex flex-row justify-content-between mx-2">
         <div><h4>Categories</h4></div>
       </div>
 
       <div className="my-1"></div>
-      <div className="d-flex flex-row justify-content-evenly flex-wrap p-2 shadow shadow-1 ">
+      <div className="d-flex flex-row justify-content-between flex-wrap p-2 shadow shadow-1 mx-2">
         {categories.map((category, index) => (
           <div className="d-flex flex-column" key={index}>
             <Link to="" className="text-decoration-none text-dark">
