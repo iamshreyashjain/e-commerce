@@ -48,7 +48,7 @@ export default function HP_Header() {
       {/* Navigation Buttons */}
       <div className="d-flex align-items-center">
         {/* Login/Logout Button */}
-        <div className="me-2">
+        <div className="me-1">
           {currentUser ? (
             <button className="btn btn-primary" onClick={handleLogout}>
               <CgLogOut className="mx-2 navbar_icon" />
@@ -65,7 +65,7 @@ export default function HP_Header() {
         </div>
 
         {/* Cart Button */}
-        <div className="me-2">
+        <div className="me-1">
           {currentUser ? (
             <Link to="/cart" className="text-decoration-none text-white">
               <button className="btn btn-primary">
@@ -82,7 +82,7 @@ export default function HP_Header() {
         </div>
 
         {/* Wishlist Button */}
-        <div className="me-2">
+        <div className="me-1">
           {currentUser ? (
             <Link to="/wishlist" className="text-decoration-none text-white">
               <button className="btn btn-primary">
