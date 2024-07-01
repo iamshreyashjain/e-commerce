@@ -1,89 +1,48 @@
-import fiftyPercentOff from "../../assets/images/50.png"
-import fourtyPercentOff from "../../assets/images/40.png"
-import thirtyPercentOff from "../../assets/images/30.png"
-import twentyPercentOff from "../../assets/images/20.png"
-import tenPercentOff from "../../assets/images/10.png"
-import Store99 from "../../assets/images/99.png"
+import  { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
+import './HP_Offer.css'
 
-//import { GoChevronRight } from "react-icons/go";
+export default function HP_Offer() {
+  const [offers, setOffers] = useState([]);
 
+  useEffect(() => {
+    const fetchImages = async () => {
+      const storage = getStorage();
+      const listRef = ref(storage, 'offers'); // Path to your folder in Firebase Storage
+      const response = await listAll(listRef);
+      const urls = await Promise.all(response.items.map(item => getDownloadURL(item)));
+      const offersData = urls.map(url => ({ image: url }));
+      setOffers(offersData);
+    };
 
-export default function  HP_Offer(){
+    fetchImages();
+  }, []);
 
-  return(
+  return (
     <>
-    <div className="my-5"> </div>
-    <div className="d-flex flex flex-row justify-content-between mx-5">
-        <div><h4>Discount Store</h4></div>
-      {/* <div><button className="btn btn-primary">View More <GoChevronRight />    </button></div>*/}
-    </div>
-    
+      <div className="my-5"></div>
+      <div className="d-flex flex-row justify-content-between mx-2">
+        <div><h4>Offers</h4></div>
+      </div>
 
-    <div className="my-1"> </div>
-    <div className="d-flex flex flex-row flex-wrap mx-5 py-3  shadow shadow-1">  
-
-      <div className="col-lg-2 col-md-4 col-sm-4 col-6">
-          <div className="text-center">
-            <img src= {fiftyPercentOff} className=" rounded rounded-2  shadow shaodw-1 col-lg-8 col-md-6 col-sm-8 col-8" height="100px"/>
+      <div className="my-1"></div>
+      <div className="d-flex flex-row justify-content-between gap-3 flex-wrap p-2 shadow shadow-1 mx-2">
+        {offers.map((category, index) => (
+          <div className="d-flex flex-column" key={index}>
+            <Link to="" className="text-decoration-none text-dark">
+              <div className="text-center">
+                <img 
+                  src={category.image} 
+                  alt={`Offer ${index}`}
+                  className="object-fit-fill rounded rounded-2 shadow shadow-2 offImg" 
+                  height="120px"
+                />
+              </div>
+            </Link>
           </div>
-          <div className=" text-center mt-3">
-         
-          </div>
+        ))}
       </div>
-
-      <div className="col-lg-2 col-md-4 col-sm-4 col-6">
-      <div className="text-center">
-        <img src= {fourtyPercentOff} className=" rounded rounded-2 shadow shaodw-1  col-lg-8 col-md-6 col-sm-8 col-8" height="100px"/>
-      </div>
-      <div className=" text-center mt-3">
-      
-      </div>
-      </div>
-
-      <div className="col-lg-2 col-md-4 col-sm-4 col-6">
-      <div className="text-center">
-        <img src= {thirtyPercentOff} className=" rounded rounded-2 shadow shaodw-1 col-lg-8 col-md-6 col-sm-8 col-8" height="100px"/>
-      </div>
-      <div className=" text-center mt-3">
-      
-      </div>
-      </div>
-
-
-      <div className="col-lg-2 col-md-4 col-sm-4 col-6">
-      <div className="text-center">
-        <img src= {twentyPercentOff} className="rounded rounded-2 shadow shaodw-1 col-lg-8 col-md-6 col-sm-8 col-8" height="100px"/>
-      </div>
-      <div className=" text-center mt-3">
-      
-      </div>
-      </div>
-
-      <div className="col-lg-2 col-md-4 col-sm-4 col-6">
-      <div className="text-center">
-        <img src= {tenPercentOff} className="rounded rounded-2 shadow shaodw-1  col-lg-8 col-md-6 col-sm-8 col-8" height="100px"/>
-      </div>
-      <div className=" text-center mt-3">
-     
-      </div>
-      </div>
-
-      <div className="col-lg-2 col-md-4 col-sm-4 col-6">
-      <div className="text-center">
-        <img src= {Store99} className=" rounded rounded-2 shadow shadow-1 col-lg-8 col-md-6 col-sm-8 col-8" height="100px"/>
-      </div>
-      <div className=" text-center mt-3">
-       
-      </div>
-      </div>
-
-      
-    </div>
-     
-
-
-      
-       
-    </>  
-  )
+    </>
+  );
 }

@@ -28,7 +28,7 @@ export default function HP_Header() {
   };
 
   return (
-    <div className="d-flex bg-primary bg-gradient justify-content-between py-2">
+    <div className="d-flex bg-primary bg-gradient gap-2 justify-content-between py-2">
       {/* Logo */}
       <div className="d-flex align-items-center">
         <Link to="/">
@@ -37,7 +37,7 @@ export default function HP_Header() {
       </div>
 
       {/* Search Bar */}
-      <div className="col-lg-6 col-md-6">
+      <div className="col-lg-6 col-md-6 col-4">
         <input
           type="text"
           className="form-control text-dark-emphasis"
@@ -48,7 +48,7 @@ export default function HP_Header() {
       {/* Navigation Buttons */}
       <div className="d-flex align-items-center">
         {/* Login/Logout Button */}
-        <div className="me-3">
+        <div className="me-2">
           {currentUser ? (
             <button className="btn btn-primary" onClick={handleLogout}>
               <CgLogOut className="mx-2 navbar_icon" />
@@ -65,7 +65,7 @@ export default function HP_Header() {
         </div>
 
         {/* Cart Button */}
-        <div className="me-3">
+        <div className="me-2">
           {currentUser ? (
             <Link to="/cart" className="text-decoration-none text-white">
               <button className="btn btn-primary">
@@ -82,7 +82,7 @@ export default function HP_Header() {
         </div>
 
         {/* Wishlist Button */}
-        <div className="me-3">
+        <div className="me-2">
           {currentUser ? (
             <Link to="/wishlist" className="text-decoration-none text-white">
               <button className="btn btn-primary">
