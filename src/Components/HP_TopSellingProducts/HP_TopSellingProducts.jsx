@@ -19,14 +19,14 @@ export default function HP_TopSellingProducts() {
       </div>
 
       <div className="d-flex flex-row flex-wrap justify-content-evenly mx-5 shadow shadow-1">
-        {Object.keys(products).map(category => (
+        {Object.keys(products).slice(0,3).map(category => (
           products[category].map((product) => (
             <div className="col-lg-3 col-md-4 col-sm-6 col-12 mb-4" key={product.id}>
               <div className="border rounded p-3">
               <Link to={`/${category}/${product.id}`} className="text-decoration-none text-dark">
 
                   <img
-                    src={product.images} // Assuming first image of first variant
+                  src={product.images} // Assuming first image of first variant
                     alt={product.name}
                     className="img-fluid mb-3"
                     style={{ maxHeight: "200px" }}

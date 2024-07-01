@@ -4,21 +4,23 @@
       "id": "1",
       "name": "Apple iPhone 13",
       "brand": "Apple",
-      "variants": [
-        {
+
+      "variants":[{
           "color": "White",
-          "ram": "128GB",
-          "ogPrice": 65000,
-          "selPrice": 54000,
-          "images": [
-            "/path/to/iphone13.jpg",
-            "/path/to/iphone13_thumbnail_1.jpg",
-            "/path/to/iphone13_thumbnail_2.jpg",
-            "/path/to/iphone13_thumbnail_3.jpg",
-            "/path/to/iphone13_thumbnail_4.jpg"
-          ]
-        }
-      ],
+          "ram": "128GB"
+      }],
+
+      "price":[{
+        "selPrice": 54000,
+        "ogPrice": 65000
+      }],
+      "images": [
+          "https://m.media-amazon.com/images/I/71GLMJ7TQiL._SX679_.jpg",
+          "https://m.media-amazon.com/images/I/61NTwRtdzfL._SX679_.jpg",
+          "/path/to/iphone13_thumbnail_2.jpg",
+          "/path/to/iphone13_thumbnail_3.jpg",
+          "/path/to/iphone13_thumbnail_4.jpg"
+        ],
       "rating": 5,
       "totalReviews": 2,
       "offers": [
@@ -29,26 +31,30 @@
       ]
     }
   ],
-  "camera": [
+  "NikonCamera": [
     {
       "id": "3",
       "name": "Nikon D850",
       "brand": "Nikon",
+      "price" :  [{
+        "ogPrice": 250000,
+        "selPrice": 220000
+    }
+      ],
       "variants": [
         {
           "type": "Full-frame CMOS",
-          "megapixels": 45.7,
-          "ogPrice": 250000,
-          "selPrice": 220000,
-          "images": [
+          "megapixels": 45.7
+        }
+      ],
+      "images": [
             "/path/to/nikon_d850.jpg",
             "/path/to/nikon_d850_thumbnail_1.jpg",
             "/path/to/nikon_d850_thumbnail_2.jpg",
             "/path/to/nikon_d850_thumbnail_3.jpg",
             "/path/to/nikon_d850_thumbnail_4.jpg"
-          ]
-        }
-      ],
+          ],
+
       "rating": 4.8,
       "totalReviews": 5,
       "offers": [
@@ -62,21 +68,60 @@
       "id": "4",
       "name": "JBL Flip 5",
       "brand": "JBL",
+
+      "price" :  [{
+        "ogPrice": 8000,
+        "selPrice": 7000
+      }],
+
       "variants": [
         {
           "type": "Speaker",
           "wireless": true,
-          "batteryLife": "Up to 12 hours",
-          "ogPrice": 8000,
-          "selPrice": 7000,
-          "images": [
+          "batteryLife": "Up to 12 hours"
+        }
+      ],
+
+      "images": [
             "/path/to/jbl_flip5.jpg",
             "/path/to/jbl_flip5_thumbnail_1.jpg",
             "/path/to/jbl_flip5_thumbnail_2.jpg",
             "/path/to/jbl_flip5_thumbnail_3.jpg",
             "/path/to/jbl_flip5_thumbnail_4.jpg"
-          ]
+      ],
+      "rating": 4.7,
+      "totalReviews": 7,
+      "offers": [
+        "Get 200Rs Off",
+        "Get 300Rs Off"
+      ]
+    }
+  ],
+  "speakerTwo": [
+    {
+      "id": "5",
+      "name": "Bose Flip 5",
+      "brand": "Bose",
+      
+      "price" :  [{
+        "ogPrice": 8000,
+        "selPrice": 7000
+      }],
+
+      "variants": [
+        {
+          "type": "Speaker",
+          "wireless": true,
+          "batteryLife": "Up to 12 hours"
         }
+      ],
+
+      "images": [
+            "/path/to/jbl_flip5.jpg",
+            "/path/to/jbl_flip5_thumbnail_1.jpg",
+            "/path/to/jbl_flip5_thumbnail_2.jpg",
+            "/path/to/jbl_flip5_thumbnail_3.jpg",
+            "/path/to/jbl_flip5_thumbnail_4.jpg"
       ],
       "rating": 4.7,
       "totalReviews": 7,
@@ -86,4 +131,5 @@
       ]
     }
   ]
+
 }

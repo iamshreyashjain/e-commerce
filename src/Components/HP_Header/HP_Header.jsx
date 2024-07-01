@@ -1,27 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BiUser } from 'react-icons/bi';
-import { BsCart3, BsShop } from 'react-icons/bs';
+import { BsCart3 } from 'react-icons/bs';
+import { FaRegHeart } from 'react-icons/fa';
 import { useFirebase } from './../../context/firebase'; // Adjust the path accordingly
-import { FaStar, FaTags, FaShoppingCart, FaCreditCard, FaHeart, FaRegHeart } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 import logo from '../../assets/images/Logo.jpeg';
 import './HP_Header.css';
 
 export default function HP_Header() {
   const { currentUser, logout } = useFirebase();
-  const [loading, setLoading] = React.useState(false);
 
+  const navigate  = useNavigate();
   const handleLogout = async () => {
-    setLoading(true);
     try {
+      navigate('/');
       await logout();
       console.log('Logout successful');
     } catch (error) {
       console.error('Logout error', error);
-    } finally {
-      setLoading(false);
     }
+  };
+
+  const handleDisabledButtonClick = () => {
+    alert('Please login to access this feature.');
   };
 
   return (
@@ -49,9 +52,9 @@ export default function HP_Header() {
             {/* Login/Logout Button */}
             <div className="col-lg-3 col-md-3 col-sm-3 col-4">
               {currentUser ? (
-                <button className="btn btn-primary" onClick={handleLogout} disabled={loading}>
+                <button className="btn btn-primary" onClick={handleLogout}>
                   <BiUser className="mx-2 navbar_icon" />
-                  <span className="navbar_text">{loading ? 'Logging out...' : 'Logout'}</span>
+                  <span className="navbar_text">Logout</span>
                 </button>
               ) : (
                 <Link to="/customerlogin" className="text-decoration-none text-white">
@@ -65,22 +68,36 @@ export default function HP_Header() {
 
             {/* Cart Button */}
             <div className="col-lg-3 col-md-3 col-sm-3 col-4">
-              <Link to="/cart" className="text-decoration-none text-white">
-                <button className="btn btn-primary">
+              {currentUser ? (
+                <Link to="/cart" className="text-decoration-none text-white">
+                  <button className="btn btn-primary">
+                    <BsCart3 className="mx-2 mb-1 navbar_icon" />
+                    <span className="navbar_text">Cart</span>
+                  </button>
+                </Link>
+              ) : (
+                <button className="btn btn-primary" onClick={handleDisabledButtonClick} >
                   <BsCart3 className="mx-2 mb-1 navbar_icon" />
                   <span className="navbar_text">Cart</span>
                 </button>
-              </Link>
+              )}
             </div>
 
-            {/* WishList Button */}
+            {/* Wishlist Button */}
             <div className="col-lg-6 col-md-6 col-sm-3 col-4">
-              <Link to="/wishlist" className="text-decoration-none text-white">
-                <button className="btn btn-primary">
+              {currentUser ? (
+                <Link to="/wishlist" className="text-decoration-none text-white">
+                  <button className="btn btn-primary">
+                    <FaRegHeart className="mx-2 mb-1 navbar_icon" />
+                    <span className="navbar_text">Your Wishlist</span>
+                  </button>
+                </Link>
+              ) : (
+                <button className="btn btn-primary" onClick={handleDisabledButtonClick} >
                   <FaRegHeart className="mx-2 mb-1 navbar_icon" />
-                  <span className="navbar_text">Yours Wishlist</span>
+                  <span className="navbar_text">Your Wishlist</span>
                 </button>
-              </Link>
+              )}
             </div>
           </div>
         </div>

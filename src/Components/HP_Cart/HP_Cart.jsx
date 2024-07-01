@@ -9,8 +9,14 @@ const HP_Cart = () => {
   const { cart, removeFromCart } = useCart(); // Use cart and removeFromCart from CartContext
 
   const calculateTotal = () => {
-    return cart.reduce((total, product) => total + product.variants[0].selPrice, 0);
+    return cart.reduce((total, product) => total + product.price[0].selPrice, 0);
+    
   };
+
+  {cart.map((data)=>{
+    console.log(data.price[0].selPrice)
+
+  })}
 
   return (
     <div className="container mt-5">
@@ -18,7 +24,7 @@ const HP_Cart = () => {
       {cart.length === 0 ? (
         <div>
           <p>Your cart is empty.</p>
-          <Link to="/ecomm/">
+          <Link to="/">
             <button className="btn btn-dark">
               <HiShoppingBag className="me-2" /> Continue Shopping
             </button>
@@ -30,13 +36,12 @@ const HP_Cart = () => {
             {cart.map((product) => (
               <li key={product.id} className="list-group-item d-flex justify-content-between align-items-center">
                 <div className="d-flex align-items-center">
-                  <img src={product.variants[0].images[0]} alt={product.name} className="img-thumbnail me-3" style={{ width: '100px' }} />
+                  <img src={product.images[0]} alt={product.name} className="img-thumbnail me-3" style={{ width: '100px' }} />
                   <div>
                     <h5>{product.name}</h5>
-                    <p>{product.variants[0].color} - {product.variants[0].ram}</p>
                     <div className="d-flex align-items-center">
                       <MdCurrencyRupee className="mb-1" />
-                      <span>{product.variants[0].selPrice}</span>
+                      <span>{product.price[0].selPrice}</span>
                     </div>
                   </div>
                 </div>

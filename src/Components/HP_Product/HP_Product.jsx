@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FaStar, FaTags, FaShoppingCart, FaCreditCard, FaHeart, FaRegHeart } from 'react-icons/fa';
 import { MdCurrencyRupee } from 'react-icons/md';
-import { useParams } from 'react-router-dom';
-import { useProducts } from '../../context/ProductContext';
-import { useCart } from '../../context/CartContext';
-import { useWishlist } from '../../context/WishlistContext';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useProducts } from './../../context/ProductContext';
+import { useCart } from './../../context/CartContext';
+import { useWishlist } from './../../context/WishlistContext';
+import { useFirebase } from './../../context/firebase'; // Import useFirebase hook
 import { PiShareFatBold } from 'react-icons/pi';
 
 export default function HP_Product() {
@@ -12,9 +13,12 @@ export default function HP_Product() {
   const { products } = useProducts();
   const { addToCart } = useCart();
   const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
+  const { currentUser, logout } = useFirebase(); // Get currentUser and logout function from useFirebase
+  const navigate = useNavigate();
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [selectedVariant, setSelectedVariant] = useState(null);
   const [cartText, setCartText] = useState("Add to cart");
+  const [mainImage, setMainImage] = useState('');
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const categoryProducts = products[category];
@@ -22,32 +26,40 @@ export default function HP_Product() {
       const product = categoryProducts.find(p => p.id === productId);
       if (product) {
         setSelectedProduct(product);
-        setSelectedVariant(product.variants[0]); // Assuming variants are now standardized
+        setMainImage(product.images[0]); // Set initial main image
       }
     }
   }, [category, productId, products]);
 
-  const displayPrice = (variant) => (
+  const displayPrice = (price) => (
     <div className="d-flex flex-row align-items-center">
       <h4>
         <MdCurrencyRupee className="mb-1" />
-        {variant.selPrice}
+        {price.selPrice}
       </h4>
-      {variant.selPrice !== variant.ogPrice && (
+      {price.selPrice !== price.ogPrice && (
         <div className="text-decoration-line-through text-secondary mx-2">
           <MdCurrencyRupee className="mb-2" />
-          {variant.ogPrice}
+          {price.ogPrice}
         </div>
       )}
     </div>
   );
 
   const handleAddToCart = () => {
+    if (!currentUser) {
+        alert('please login to allow this feature')
+      return;
+    }
     setCartText("Added");
     addToCart(selectedProduct); // Add product to cart
   };
 
   const handleBuyNow = () => {
+    if (!currentUser) {
+      alert('please login to allow this feature')
+      return;
+    }
     console.log('Proceed to buy the item');
     // Implement logic for immediate purchase
   };
@@ -55,6 +67,10 @@ export default function HP_Product() {
   const isInWishlist = wishlist.some(item => item.id === selectedProduct?.id);
 
   const handleWishlistToggle = () => {
+    if (!currentUser) {
+      alert('please login to allow this feature')
+      return;
+    }
     if (isInWishlist) {
       removeFromWishlist(selectedProduct?.id);
     } else {
@@ -62,7 +78,12 @@ export default function HP_Product() {
     }
   };
 
-  if (!selectedProduct || !selectedVariant) {
+  const handleThumbnailClick = (index) => {
+    setActiveIndex(index);
+    setMainImage(selectedProduct.images[index]);
+  };
+
+  if (!selectedProduct) {
     return <div>Loading...</div>;
   }
 
@@ -71,19 +92,26 @@ export default function HP_Product() {
       <div className="mt-5"></div>
       <div className="d-flex flex-lg-row flex-column mx-5 p-3 shadow shadow-2">
         <div className="col-lg-6">
-          <img src={selectedVariant?.images?.[0]} alt={selectedProduct.name} className="img-fluid" />
+          <div className="main-image-container">
+            <img src={mainImage} alt={selectedProduct.name} className="main-image img-fluid" />
+          </div>
+          <div className="d-flex flex-row mt-2">
+            {selectedProduct.images.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`${selectedProduct.name}-${index}`}
+                className={`img-thumbnail me-2 ${index === activeIndex ? 'active-thumbnail' : ''}`}
+                onMouseOver={() => handleThumbnailClick(index)}
+              />
+            ))}
+          </div>
         </div>
         <div className="d-flex flex-column col-lg-6 mt-3 mt-lg-0">
           <div className="d-flex justify-content-between">
-          
-          { selectedVariant.color  && selectedVariant.ram ? <>
-          <h4>{selectedProduct.name}({selectedVariant.ram}, {selectedVariant.color}) </h4>
-          </> : <>
-          <h4>{selectedProduct.name}</h4>
-            </>
-            }
+            <h4>{selectedProduct.name}</h4>
             <div className='d-flex flex justify-content-end gap-1'>
-              <button className='btn btn-outline-dark' onClick={handleWishlistToggle}>
+              <button className='btn btn-outline-dark' onClick={handleWishlistToggle} >
                 {isInWishlist ? <FaHeart color="red" /> : <FaRegHeart />}
               </button>
               <button className='btn btn-outline-dark'>
@@ -99,7 +127,7 @@ export default function HP_Product() {
             <div className="text-muted">({selectedProduct.totalReviews} reviews)</div>
           </div>
           <div className="mt-2">
-            {displayPrice(selectedVariant)}
+            {displayPrice(selectedProduct.price[0])} {/* Assuming only one price variant for simplicity */}
           </div>
           <div className="mt-2">
             <span className="me-2"><FaTags className="text-primary" /> Offers:</span>
@@ -108,12 +136,26 @@ export default function HP_Product() {
             ))}
           </div>
           <div className="mt-3">
-            <button className="btn btn-outline-dark me-2" onClick={handleAddToCart}>
+            <button className="btn btn-outline-dark me-2" onClick={handleAddToCart} disabled={!currentUser}>
               <FaShoppingCart className="me-1" /> {cartText}
             </button>
-            <button className="btn btn-dark" onClick={handleBuyNow}>
+            <button className="btn btn-dark" onClick={handleBuyNow} disabled={!currentUser}>
               <FaCreditCard className="me-1" /> Buy Now
             </button>
+          </div>
+          <div className="mt-4">
+            {selectedProduct.variants && (
+              <div>
+                <h5>Specifications:</h5>
+                <ul className="list-unstyled">
+                  {Object.entries(selectedProduct.variants[0]).map(([key, value]) => (
+                    <li key={key}>
+                      <strong>{key.charAt(0).toUpperCase() + key.slice(1)}:</strong> {value}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </div>

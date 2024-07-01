@@ -27,7 +27,7 @@ export default function VP_LoginPage(){
         <div className="row">
         <div className=" col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
         <Link><button type="button" className="col-lg-12 gy-md-12 col-sm-12 col-12 btn btn-outline-primary">Login</button></Link>
-        <Link to ="/ecomm/vendor/loginotp"><button type="button" className="my-3 col-lg-12 gy-md-12 col-sm-12 col-12 btn btn-primary">Login using Link</button></Link>
+        <Link to ="/vendor/loginotp"><button type="button" className="my-3 col-lg-12 gy-md-12 col-sm-12 col-12 btn btn-primary">Login using Link</button></Link>
         </div>
         </div>
         </form>
