@@ -38,16 +38,15 @@ export default function HP_Categories() {
       </div>
 
       <div className="my-1"></div>
-      <div className="d-flex flex-row justify-content-lg-evenly justify-content-md-around justify-content-sm-around  justify-content-evenly flex-wrap p-2 shadow shadow-1 bannerMargin">
+      <div className="d-flex flex-row justify-content-lg-evenly justify-content-md-around justify-content-sm-around justify-content-evenly flex-wrap p-2 shadow shadow-1">
         {categories.map((category, index) => (
-          <div className="d-flex flex-column" key={index}>
+          <div className="category-item d-flex flex-column" key={index}>
             <Link to="" className="text-decoration-none text-dark">
               <div className="text-center">
                 <img 
                   src={category.image} 
                   alt={category.caption} 
-                  className="object-fit-fill col-lg-12 rounded rounded-2 shadow shadow-2" 
-                  height="120px"
+                  className="category-image object-fit-fill col-lg-12 rounded rounded-2 shadow shadow-2" 
                 />
               </div>
               <div className="text-center mt-3">

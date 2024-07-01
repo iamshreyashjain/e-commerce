@@ -1,3 +1,15 @@
+/* HP_Categories.css */
+
+.category-item {
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
+.category-image {
+    width: 100%;
+    height: 120px;
+}
+
 /* Extra extra large devices (extra-large desktops) */
 @media only screen and (min-width: 1400px) {
     .bannerMargin {
@@ -5,33 +17,49 @@
     }
 }
 
-
 /* Extra large devices (large desktops and high-resolution displays) */
-@media only screen  and (max-width: 1399.98px) and (min-width: 1200px) {
-
+@media only screen and (max-width: 1399.98px) and (min-width: 1200px) {
+    /* Add any specific styles for extra large devices if needed */
 }
-
 
 /* Large devices (desktops and laptops) */
 @media only screen and (max-width: 1199.98px) and (min-width: 992px) {
-
+    /* Add any specific styles for large devices if needed */
 }
 
 /* Medium devices (tablets and small laptops) */
-@media only screen and (max-width: 991.98px) and (min-width: 768px){
+@media only screen and (max-width: 991.98px) and (min-width: 768px) {
+    .category-image {
+        height: 100px;
+    }
 
+    .category-item {
+        margin: 5px;
+    }
 }
-
 
 /* Small devices (phones and small tablets) */
-@media only screen and (max-width: 767.98px) and (min-width: 576px){
- 
+@media only screen and (max-width: 767.98px) and (min-width: 576px) {
+    .bannerMargin {
+        margin: 0px 10px;
+    }
+
+    .category-image {
+        height: 100px;
+    }
+
+    .category-item {
+        margin: 5px;
+    }
 }
 
-
 /* Extra small devices (phones) */
-@media only screen and (max-width: 575.98px) {
-    .bannerMargin {
-        margin: 0px 50px;
+@media only screen and (max-width: 576px) {
+    .category-image {
+        height: 80px;
+    }
+
+    .category-item {
+        margin: 5px;
     }
 }
