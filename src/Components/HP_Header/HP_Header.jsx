@@ -5,6 +5,8 @@ import { BsCart3 } from 'react-icons/bs';
 import { FaRegHeart } from 'react-icons/fa';
 import { useFirebase } from './../../context/firebase'; // Adjust the path accordingly
 import { useNavigate } from 'react-router-dom';
+import { FiLogIn } from "react-icons/fi";
+import { CgLogOut } from "react-icons/cg";
 
 import logo from '../../assets/images/Logo.jpeg';
 import './HP_Header.css';
@@ -53,13 +55,13 @@ export default function HP_Header() {
             <div className="col-lg-3 col-md-3 col-sm-3 col-4">
               {currentUser ? (
                 <button className="btn btn-primary" onClick={handleLogout}>
-                  <BiUser className="mx-2 navbar_icon" />
+                  <CgLogOut className="mx-2 navbar_icon" />
                   <span className="navbar_text">Logout</span>
                 </button>
               ) : (
                 <Link to="/customerlogin" className="text-decoration-none text-white">
                   <button className="btn btn-primary">
-                    <BiUser className="mx-2 navbar_icon" />
+                    <FiLogIn className="mx-2 navbar_icon" />
                     <span className="navbar_text">Login</span>
                   </button>
                 </Link>

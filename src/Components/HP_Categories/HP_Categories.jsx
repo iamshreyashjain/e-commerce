@@ -23,7 +23,7 @@ export default function  HP_Categories(){
     
 
     <div className="my-1"> </div>
-    <div className="d-flex flex flex-row flex-wrap mx-5 p-2 shadow shadow-1">  
+    <div className="d-flex flex flex-row flex-wrap p-2 shadow shadow-1">  
      
      
         <div className="d-flex flex flex-column col-lg-2 col-md-4 col-sm-4 col-6">
