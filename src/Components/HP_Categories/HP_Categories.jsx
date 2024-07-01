@@ -1,93 +1,63 @@
-import tv from "../../assets/images/tv.avif"
-import sugar from "../../assets/images/sugar.avif"
-import headphone from "../../assets/images/headphone.avif"
-import mobile from "../../assets/images/mobile.jpg"
-import Lifestyle from "../../assets/images/Lifestyle.avif"
-import fashion from "../../assets/images/fashion.avif"
+import React from 'react';
+import { Link } from 'react-router-dom';
+import "./HP_Categories.css";
 
+export default function HP_Categories() {
+  const categories = [
+    {
+      image: 'https://as1.ftcdn.net/v2/jpg/01/88/21/46/1000_F_188214656_C6ZaKov6XHjtpSslDXg8Nym8zE4zzNa2.jpg',
+      caption: 'Grocery'
+    },
+    {
+      image: 'https://as1.ftcdn.net/v2/jpg/01/88/21/46/1000_F_188214656_C6ZaKov6XHjtpSslDXg8Nym8zE4zzNa2.jpg',
+      caption: 'Grocery'
+    },
+    {
+      image: 'https://as1.ftcdn.net/v2/jpg/01/88/21/46/1000_F_188214656_C6ZaKov6XHjtpSslDXg8Nym8zE4zzNa2.jpg',
+      caption: 'Grocery'
+    },
+    {
+      image: 'https://as1.ftcdn.net/v2/jpg/01/88/21/46/1000_F_188214656_C6ZaKov6XHjtpSslDXg8Nym8zE4zzNa2.jpg',
+      caption: 'Grocery'
+    },
+    {
+      image: 'https://as1.ftcdn.net/v2/jpg/01/88/21/46/1000_F_188214656_C6ZaKov6XHjtpSslDXg8Nym8zE4zzNa2.jpg',
+      caption: 'Grocery'
+    },
+    {
+      image: 'https://as1.ftcdn.net/v2/jpg/01/88/21/46/1000_F_188214656_C6ZaKov6XHjtpSslDXg8Nym8zE4zzNa2.jpg',
+      caption: 'Grocery'
+    },
+    // Add more categories as needed
+  ];
 
-import "./HP_Categories.css"
-
-//import { GoChevronRight } from "react-icons/go"; 
-import { Link } from "react-router-dom"
-
-export default function  HP_Categories(){
-
-  return(
+  return (
     <>
-    <div className="my-5"> </div>
-    <div className="d-flex flex flex-row justify-content-between mx-5 my-2">
+      <div className="my-5"></div>
+      <div className="d-flex flex-row justify-content-between my-2">
         <div><h4>Categories</h4></div>
-      {/*   <div><button className="btn btn-primary">View More <GoChevronRight /></button></div>*/}
-    </div>
-    
+      </div>
 
-    <div className="my-1"> </div>
-    <div className="d-flex flex flex-row flex-wrap p-2 shadow shadow-1">  
-     
-     
-        <div className="d-flex flex flex-column col-lg-2 col-md-4 col-sm-4 col-6">
-        <Link to = "" className="text-decoration-none text-dark">
-          <div className="text-center ">
-            <img src= {sugar} className=" rounded rounded-2 shadow shadow-1  col-lg-10 col-md-10 col-sm-8 col-8" height="120px"/>
+      <div className="my-1"></div>
+      <div className="d-flex flex-row justify-content-lg-evenly justify-content-md-around justify-content-sm-around  justify-content-evenly   flex-wrap p-2 shadow shadow-1">
+        {categories.map((category, index) => (
+          <div className="d-flex flex-column" key={index}>
+            <Link to="" className="text-decoration-none text-dark">
+              <div className="text-center">
+                <img 
+                  src={category.image} 
+                  alt={category.caption} 
+                  className="object-fit-fill col-lg-12 rounded rounded-2 shadow shadow-2" 
+                  height="120px"
+                />
+              </div>
+              <div className="text-center mt-3">
+                <h6>{category.caption}</h6>
+              </div>
+            </Link>
           </div>
-          <div className=" text-center mt-3">
-            <h6 className="">Grocery</h6>
-          </div>
-          </Link>
-        </div>
-        <div className="d-flex flex flex-column col-lg-2 col-md-4 col-sm-4 col-6">
-          <div className="text-center ">
-            <img src= {fashion} className=" rounded rounded-2 shadow shadow-5  col-lg-10 col-md-10 col-sm-8 col-8" height="120px"/>
-          </div>
-          <div className=" text-center mt-3">
-            <h6 className="">Fashion</h6>
-          </div>
-        </div>
-
-        <div className="d-flex flex flex-column col-lg-2 col-md-4 col-sm-4 col-6">
-        <div className="text-center ">
-          <img src= {tv} className=" rounded rounded-2  col-lg-10 col-md-10 col-sm-8 col-8" height="120px"/>
-        </div>
-        <div className=" text-center mt-3">
-          <h6 className="">Electronics</h6>
-        </div>
+        ))}
       </div>
-
-      <div className="d-flex flex flex-column col-lg-2 col-md-4 col-sm-4 col-6">
-        <div className="text-center ">
-          <img src= {headphone} className=" rounded rounded-2  col-lg-10 col-md-10 col-sm-8 col-8" height="120px"/>
-        </div>
-        <div className=" text-center mt-3">
-          <h6 className="">Accessories </h6>
-        </div>
-      </div>
-
-      <div className="d-flex flex flex-column col-lg-2 col-md-4 col-sm-4 col-6">
-      <div className="text-center ">
-        <img src= {mobile} className=" rounded rounded-2 col-lg-10 col-md-10 col-sm-8 col-8" height="120px"/>
-      </div>
-      <div className=" text-center mt-3">
-        <h6 className="">Mobile</h6>
-      </div>
-    </div>
-      <div className="d-flex flex flex-column col-lg-2 col-md-4 col-sm-4 col-6">
-      <div className="text-center ">
-        <img src= {Lifestyle} className=" rounded rounded-2  col-lg-10 col-md-10 col-sm-8 col-8" height="120px"/>
-      </div>
-      <div className=" text-center mt-3">
-        <h6 className="">Lifestyle</h6>
-      </div>
-    </div>
-
-     
-        
-        
-    </div>
-    
-
-
-       
-    </>  
-  )
+    </>
+  );
 }
