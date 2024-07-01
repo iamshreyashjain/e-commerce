@@ -10,13 +10,13 @@ export default function HP_Slider(){
 
     ];
     return(
-      <div className="m-5">
+      <div className="my-5 mx-2">
         <div id="carouselExampleAutoplaying" className="carousel slide carousel-fade" data-bs-ride="carousel">
           <div className="carousel-inner">
             {banners.map((data, index) => (
               <div key={index}>
               <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
-                <img src={data} className="d-block w-100" height={250}/>
+                <img src={data} className="d-block w-100" height={220}/>
               </div>
               </div>
             ))}
