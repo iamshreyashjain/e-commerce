@@ -25,7 +25,7 @@ export default function HP_Categories() {
     },
     {
       image: 'https://img.freepik.com/free-photo/empty-modern-room-with-furniture_23-2149178335.jpg?t=st=1719867060~exp=1719870660~hmac=fb2bd41a11d2530d6f5b2d7d002e14e4a1850d2f5eab1532025802b7e2e7ab34&w=1480',
-      caption: 'change'
+      caption: 'Lifestyle'
     },
     // Add more categories as needed
   ];
@@ -38,7 +38,7 @@ export default function HP_Categories() {
       </div>
 
       <div className="my-1"></div>
-      <div className="d-flex flex-row justify-content-evenly flex-wrap p-2 shadow shadow-1 col-12 ">
+      <div className="d-flex flex-row justify-content-evenly flex-wrap p-2 shadow shadow-1 ">
         {categories.map((category, index) => (
           <div className="d-flex flex-column" key={index}>
             <Link to="" className="text-decoration-none text-dark">
@@ -46,7 +46,7 @@ export default function HP_Categories() {
                 <img 
                   src={category.image} 
                   alt={category.caption} 
-                  className="object-fit-fill rounded rounded-2 shadow shadow-2" 
+                  className="object-fit-fill rounded rounded-2 shadow shadow-2 catImg" 
                   height="120px"
                 />
               </div>
