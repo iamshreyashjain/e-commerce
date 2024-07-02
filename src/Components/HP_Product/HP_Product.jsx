@@ -5,7 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useProducts } from './../../context/ProductContext';
 import { useCart } from './../../context/CartContext';
 import { useWishlist } from './../../context/WishlistContext';
-import { useFirebase } from './../../context/firebase'; // Import useFirebase hook
+import { useFirebase } from './../../context/firebase';
 import { PiShareFatBold } from 'react-icons/pi';
 
 export default function HP_Product() {
@@ -13,7 +13,7 @@ export default function HP_Product() {
   const { products } = useProducts();
   const { addToCart } = useCart();
   const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
-  const { currentUser, logout } = useFirebase(); // Get currentUser and logout function from useFirebase
+  const { currentUser, logout } = useFirebase();
   const navigate = useNavigate();
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [cartText, setCartText] = useState("Add to cart");
@@ -26,7 +26,7 @@ export default function HP_Product() {
       const product = categoryProducts.find(p => p.id === productId);
       if (product) {
         setSelectedProduct(product);
-        setMainImage(product.images[0]); // Set initial main image
+        setMainImage(product.images[0]);
       }
     }
   }, [category, productId, products]);
@@ -48,16 +48,16 @@ export default function HP_Product() {
 
   const handleAddToCart = () => {
     if (!currentUser) {
-        alert('please login to allow this feature')
+      alert('Please login to allow this feature');
       return;
     }
     setCartText("Added");
-    addToCart(selectedProduct); // Add product to cart
+    addToCart(selectedProduct);
   };
 
   const handleBuyNow = () => {
     if (!currentUser) {
-      alert('please login to allow this feature')
+      alert('Please login to allow this feature');
       return;
     }
     console.log('Proceed to buy the item');
@@ -68,7 +68,7 @@ export default function HP_Product() {
 
   const handleWishlistToggle = () => {
     if (!currentUser) {
-      alert('please login to allow this feature')
+      alert('Please login to allow this feature');
       return;
     }
     if (isInWishlist) {
@@ -102,7 +102,8 @@ export default function HP_Product() {
                 src={image}
                 alt={`${selectedProduct.name}-${index}`}
                 className={`img-thumbnail me-2 ${index === activeIndex ? 'active-thumbnail' : ''}`}
-                onMouseOver={() => handleThumbnailClick(index)}
+                onClick={() => handleThumbnailClick(index)}
+                style={{ cursor: 'pointer', width: '60px', height: '60px' }} // Added style for fixed size thumbnails
               />
             ))}
           </div>
@@ -127,7 +128,7 @@ export default function HP_Product() {
             <div className="text-muted">({selectedProduct.totalReviews} reviews)</div>
           </div>
           <div className="mt-2">
-            {displayPrice(selectedProduct.price[0])} {/* Assuming only one price variant for simplicity */}
+            {displayPrice(selectedProduct.price[0])}
           </div>
           <div className="mt-2">
             <span className="me-2"><FaTags className="text-primary" /> Offers:</span>

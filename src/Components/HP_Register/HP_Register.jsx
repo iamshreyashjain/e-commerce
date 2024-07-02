@@ -26,7 +26,7 @@ export default function HP_Register() {
   
   return (
     <>
-      <div className="col-lg-4  col-md-4 col-sm-4 col-4 border border-1 shadow shadow-1 rounded rounded-1 mt-5 mb-5 m-auto p-4">
+      <div className="col-lg-4 col-md-6 col-sm-8 col-10 border border-1 shadow shadow-1 rounded rounded-1 mt-5 mb-5 m-auto p-4">
         <form className="m-auto">
           <div className="d-flex flex-row justify-content-between">
             <h2 className="okay">Create Account</h2>

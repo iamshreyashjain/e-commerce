@@ -3,6 +3,9 @@
     .offImg{
         width: 180px;
     }
+    .offSkeleton{
+        min-height: 150px;
+    }
 }
 
 
@@ -41,5 +44,8 @@
 @media only screen and (max-width: 576px) {
     .offImg{
         width: 170px;
+    }
+    .offSkeleton{
+        min-height: 400px;
     }
 }

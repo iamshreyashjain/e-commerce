@@ -46,7 +46,7 @@ export default function HP_Header() {
       </div>
 
       {/* Navigation Buttons */}
-      <div className="d-flex align-items-center">
+      <div className="d-flex justify-content-center align-items-center">
         {/* Login/Logout Button */}
         <div className="me-1">
           {currentUser ? (

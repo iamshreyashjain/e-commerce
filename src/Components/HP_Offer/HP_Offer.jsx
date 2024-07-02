@@ -27,7 +27,7 @@ export default function HP_Offer() {
       </div>
 
       <div className="my-1"></div>
-      <div className="d-flex flex-row justify-content-between gap-3 flex-wrap p-2 shadow shadow-1 mx-2">
+      <div className="d-flex flex-row justify-content-between gap-3 flex-wrap p-2 shadow shadow-1 mx-2 offSkeleton">
         {offers.map((category, index) => (
           <div className="d-flex flex-column" key={index}>
             <Link to="" className="text-decoration-none text-dark">

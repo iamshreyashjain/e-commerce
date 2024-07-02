@@ -10,11 +10,13 @@ const googleProvider = new GoogleAuthProvider();
 export default function HP_Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [text, setText] = useState('Register & Sign In With Google')
   const navigate = useNavigate();  // Use the useNavigate hook
 
   const auth = getAuth(app);
 
   const signInUser = (event) => {
+    
     event.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((value) => {
@@ -29,7 +31,9 @@ export default function HP_Login() {
   }
 
   const signUpWithGoogle = (event) => {
+    setText('Redirecting...')
     event.preventDefault();
+    
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
@@ -54,7 +58,7 @@ export default function HP_Login() {
 
   return (
     <>
-      <div className="col-lg-4 col-md-4 col-sm-4 col-4 border border-1 shadow shadow-1 rounded rounded-1 my-5 m-auto p-4">
+      <div className="col-lg-4 col-md-6 col-sm-8 col-10 border border-1 shadow shadow-1 rounded rounded-1 my-5 m-auto p-4">
         <form className="m-auto">
           <div className="d-flex flex-row justify-content-between">
             <h2 className="okay">Login</h2>
@@ -103,7 +107,7 @@ export default function HP_Login() {
               </button>
               <hr />
               <p className="text-secondary">New to family? Register here</p>
-              <Link to="/ecomm/customer/registration">
+              <Link to="/customer/registration">
                 <button
                   type="button"
                   className="col-lg-12 col-md-12 col-sm-12 col-12 btn btn-primary mt-2"
@@ -114,8 +118,8 @@ export default function HP_Login() {
             </div>
           </div>
           <div className="mt-3">
-            <button onClick={signUpWithGoogle} className="btn btn-outline-primary col-lg-12">
-              Sign In With Google <FaGoogle className="mb-1" />
+            <button onClick={signUpWithGoogle} className="btn btn-outline-primary col-12">
+             {text} <FaGoogle className="mb-1" />
             </button>
           </div>
         </form>
