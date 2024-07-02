@@ -3,7 +3,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
-import { getFirestore, collection, doc, setDoc, updateDoc, deleteDoc, getDoc } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 import { getDatabase, ref, set as dbSet } from "firebase/database";
 import { getStorage } from "firebase/storage";
 
@@ -20,6 +20,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
 const firestore = getFirestore(app);
 const database = getDatabase(app);
@@ -34,7 +35,6 @@ export const useFirebase = () => useContext(FirebaseContext);
 
 export const FirebaseProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
-
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
@@ -97,8 +97,7 @@ export const FirebaseProvider = ({ children }) => {
         logout,
         putData,
       }}
-    >
-      {children}
+    >{children}
     </FirebaseContext.Provider>
   );
 };

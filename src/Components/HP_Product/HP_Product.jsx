@@ -13,7 +13,7 @@ export default function HP_Product() {
   const { products } = useProducts();
   const { addToCart } = useCart();
   const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
-  const { currentUser, logout } = useFirebase();
+  const { currentUser } = useFirebase();
   const navigate = useNavigate();
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [cartText, setCartText] = useState("Add to cart");
@@ -60,8 +60,7 @@ export default function HP_Product() {
       alert('Please login to allow this feature');
       return;
     }
-    console.log('Proceed to buy the item');
-    // Implement logic for immediate purchase
+    navigate(`/payment/${selectedProduct.id}`); // Navigate to payment page with product ID
   };
 
   const isInWishlist = wishlist.some(item => item.id === selectedProduct?.id);
@@ -137,14 +136,14 @@ export default function HP_Product() {
             ))}
           </div>
           <div className="mt-3">
-            <button className="btn btn-outline-dark me-2" onClick={handleAddToCart} disabled={!currentUser}>
+            <button className="btn btn-outline-dark me-2" onClick={handleAddToCart} >
               <FaShoppingCart className="me-1" /> {cartText}
             </button>
-            <button className="btn btn-dark" onClick={handleBuyNow} disabled={!currentUser}>
+            <button className="btn btn-dark" onClick={handleBuyNow} >
               <FaCreditCard className="me-1" /> Buy Now
             </button>
           </div>
-          <div className="mt-4">
+          <div className="mt-3">
             {selectedProduct.variants && (
               <div>
                 <h5>Specifications:</h5>
@@ -155,6 +154,20 @@ export default function HP_Product() {
                     </li>
                   ))}
                 </ul>
+              </div>
+            )}
+          </div>
+          <div className="mt-2">
+            {selectedProduct.variants && (
+              <div>
+                <h5>Description:</h5>
+                <div>
+                  {Object.entries(selectedProduct.description).map(([key, value]) => (
+                    <span key={key}>
+                      {value}
+                    </span>
+                  ))}
+                </div>
               </div>
             )}
           </div>

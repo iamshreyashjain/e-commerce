@@ -24,7 +24,7 @@ export default function HP_TopSellingProducts() {
               <div className="border rounded p-3 d-flex flex-column align-items-center">
                 <Link to={`/${category}/${product.id}`} className="text-decoration-none text-dark">
                   <img
-                    src={product.images} // Assuming first image of first variant
+                    src={product.images[0]} // Assuming first image of first variant
                     alt={product.name}
                     className="img-fluid mb-3"
                     style={{ maxHeight: "200px" }}

@@ -36,27 +36,24 @@ const HP_Cart = () => {
             {cart.map((product) => (
               <li key={product.id} className="list-group-item d-flex justify-content-between align-items-center">
                 <div className="d-flex align-items-center">
-                  <img src={product.images[0]} alt={product.name} className="img-thumbnail me-3" style={{ width: '100px' }} />
+                  <img src={product.images[0]} alt={product.name} className="img-thumbnail me-3" style={{ width: '200px' }} />
                   <div>
                     <h5>{product.name}</h5>
+                    <p>Brand: {product.brand}</p>
+                    <p>Variant: {product.variants[0].color} - {product.variants[0].ram || product.variants[0].type || ''}</p>
                     <div className="d-flex align-items-center">
                       <MdCurrencyRupee className="mb-1" />
-                      <span>{product.price[0].selPrice}</span>
+                      <span>{product.selPrice}</span>
+                      <p className="mb-1">{product.price[0].ogPrice}</p>
                     </div>
                   </div>
                 </div>
-                <button className="btn btn-danger" onClick={() => removeFromCart(product.id)}>
+                <button className="btn btn-outline-danger" onClick={() => removeFromCart(product.id)}>
                   <RiDeleteBin5Fill />
                 </button>
               </li>
             ))}
           </ul>
-          <div className="d-flex justify-content-between align-items-center">
-            <h4>Total: <MdCurrencyRupee className="mb-1" />{calculateTotal()}</h4>
-            <button className="btn btn-dark">
-              <RiVisaFill className="me-2" /> Checkout
-            </button>
-          </div>
         </div>
       )}
     </div>

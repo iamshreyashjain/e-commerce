@@ -28,7 +28,8 @@
         "Get 400Rs Off",
         "Get 500Rs Off",
         "Get 600Rs Off"
-      ]
+      ],
+      "description": "The iPhone 13 display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle. When measured as a standard rectangular shape, the screen is 6.06 inches diagonally (actual viewable area is less)."
     }
   ],
   "NikonCamera": [
@@ -48,11 +49,11 @@
         }
       ],
       "images": [
-            "/path/to/nikon_d850.jpg",
-            "/path/to/nikon_d850_thumbnail_1.jpg",
-            "/path/to/nikon_d850_thumbnail_2.jpg",
-            "/path/to/nikon_d850_thumbnail_3.jpg",
-            "/path/to/nikon_d850_thumbnail_4.jpg"
+            "https://m.media-amazon.com/images/I/71iKNJ6rVIL._SX679_.jpg",
+            "https://m.media-amazon.com/images/I/51nPefLHMkL.jpg",
+            "https://m.media-amazon.com/images/I/51mg-oAhtHL.jpg",
+            "https://m.media-amazon.com/images/I/515+vgB6OOL.jpg",
+            "https://m.media-amazon.com/images/S/aplus-media/sota/44df5501-48d8-4522-9575-fec83246712a.__CR2,0,305,305_PT0_SX300_V1___.png"
           ],
 
       "rating": 4.8,
@@ -60,13 +61,14 @@
       "offers": [
         "Get 1000Rs Off",
         "Get 1500Rs Off"
-      ]
+      ],
+      "description": "Nikon proudly introduces the next evolution in high resolution DSLRs, a camera that allows photographers to capture fast action in 45.7 megapixels of brilliant resolution. With remarkable advancements across the board—sensor design, autofocus, dynamic range, sensitivity, Speedlight control, battery life, shutter and mirror drive mechanisms, Silent Photography in Live-View mode, focus shift capability and more—this is quite possibly the most impressive, well-rounded DSLR."
     }
   ],
   "speaker": [
     {
       "id": "4",
-      "name": "JBL Flip 5",
+      "name": "JBL Flip 6",
       "brand": "JBL",
 
       "price" :  [{
@@ -83,18 +85,19 @@
       ],
 
       "images": [
-            "/path/to/jbl_flip5.jpg",
-            "/path/to/jbl_flip5_thumbnail_1.jpg",
-            "/path/to/jbl_flip5_thumbnail_2.jpg",
-            "/path/to/jbl_flip5_thumbnail_3.jpg",
-            "/path/to/jbl_flip5_thumbnail_4.jpg"
+        "https://m.media-amazon.com/images/I/718AKobknDL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71RhoHQ1KoL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71jQB0zFE7L._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/41cYR1yC78L._SX300_SY300_QL70_FMwebp_.jpg",
+        "https://m.media-amazon.com/images/I/81ieP8aJTnL._SX679_.jpg"
       ],
       "rating": 4.7,
       "totalReviews": 7,
       "offers": [
         "Get 200Rs Off",
         "Get 300Rs Off"
-      ]
+      ],
+      "description":"POWERFUL ORIGINAL JBL PRO SOUND: The JBL Flip 6 is engineered to deliver powerful JBL Original Pro Sound with racetrack shaped woofer delivering exceptional low frequencies & midrange, while a separate tweeter produces crisp high frequencies and the optimized dual passive radiators produce amazing deep bass"
     }
   ],
   "speakerTwo": [
@@ -112,23 +115,29 @@
         {
           "type": "Speaker",
           "wireless": true,
-          "batteryLife": "Up to 12 hours"
+          "batteryLife": "Up to 12 hours",
+          "Brand" :	"Bose",
+          "Speaker Maximum Output Power" :	"5 Watts",
+          "Connectivity Technology":	"Bluetooth",
+          "Audio Output Mode" :	"Surround",
+          "Mounting Type" :	"Portable"
         }
       ],
 
       "images": [
-            "/path/to/jbl_flip5.jpg",
-            "/path/to/jbl_flip5_thumbnail_1.jpg",
-            "/path/to/jbl_flip5_thumbnail_2.jpg",
-            "/path/to/jbl_flip5_thumbnail_3.jpg",
-            "/path/to/jbl_flip5_thumbnail_4.jpg"
+          "https://m.media-amazon.com/images/I/714PKuTLnBL._SX679_.jpg",
+          "https://m.media-amazon.com/images/I/71wNBlQxkCL._SX679_.jpg",
+          "https://m.media-amazon.com/images/I/71s2gFXDtOL._SX679_.jpg",
+          "https://m.media-amazon.com/images/I/71EPPqmrm6L._SX679_.jpg",
+          "https://m.media-amazon.com/images/I/61+4jPY3TlL._SX679_.jpg"
       ],
       "rating": 4.7,
       "totalReviews": 7,
       "offers": [
         "Get 200Rs Off",
         "Get 300Rs Off"
-      ]
+      ],
+      "description": "Clearest possible sound  Proprietary PositionIQtechnology automatically detects the position of your portable Bluetooth speaker for optimal sound quality in any orientation or environment;Waterproof speaker-The IP67 rating means this waterproof and dustproof Bluetooth speaker can go anywhere you do."
     }
   ]
 

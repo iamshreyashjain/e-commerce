@@ -15,8 +15,8 @@ import HP_HomeScreen from './Components/HP_HomeScreen/HP_HomeScreen.jsx';
 import HP_Product from './Components/HP_Product/HP_Product.jsx';
 import HP_Search from './Components/HP_Search/HP_Search.jsx';
 import HP_Cart from './Components/HP_Cart/HP_Cart.jsx';
-import HP_Address from './Components/HP_Address/HP_Address.jsx';
-import WishlistPage from './Components/WishlistPage/WishlistPage.jsx';
+import HP_Payment from './Components/HP_Payments/HP_Payment.jsx';
+
 
 // VP_Routes
 import VP_Base from './Components/VP_Base/VP_Base.jsx';
@@ -26,6 +26,8 @@ import VP_Register from './Components/VP_Register/VP_Register.jsx';
 import VP_LoginOTP from './Components/VP_LoginOTP/VP_LoginOTP.jsx';
 import { CartProvider } from './context/CartContext.jsx';
 import { WishlistProvider } from './context/WishlistContext.jsx';
+import HP_Wishlist from './Components/HP_Wishlist/HP_Wishlist.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -38,8 +40,8 @@ const router = createBrowserRouter([
       { path: '/customer/registration', element: <HP_Register /> },
       { path: '/:category/:productId', element: <HP_Product /> }, // Updated dynamic route
       { path: '/cart', element: <HP_Cart /> },
-      { path: '/address', element: <HP_Address /> },
-      { path: '/wishlist', element: <WishlistPage /> },
+      { path: '/wishlist', element: <HP_Wishlist/> },
+      { path: '/payment/:productId"', element: <HP_Payment/> },
     ]
   },
   {
