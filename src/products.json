@@ -17,9 +17,9 @@
       "images": [
           "https://m.media-amazon.com/images/I/71GLMJ7TQiL._SX679_.jpg",
           "https://m.media-amazon.com/images/I/61NTwRtdzfL._SX679_.jpg",
-          "/path/to/iphone13_thumbnail_2.jpg",
-          "/path/to/iphone13_thumbnail_3.jpg",
-          "/path/to/iphone13_thumbnail_4.jpg"
+          "https://m.media-amazon.com/images/I/71OxEU5mSCL._SX679_.jpg",
+          "https://m.media-amazon.com/images/I/71G44HUh7yL._SX679_.jpg",
+          "https://m.media-amazon.com/images/I/61BvZ6EbUvL._SX679_.jpg"
         ],
       "rating": 5,
       "totalReviews": 2,

@@ -90,20 +90,20 @@ export default function HP_Product() {
   return (
     <>
       <div className="mt-5"></div>
-      <div className="d-flex flex-lg-row flex-column mx-5 p-3 shadow shadow-2">
+      <div className="d-flex flex-lg-row flex-column mx-2 p-3 shadow shadow-2">
         <div className="col-lg-6">
-          <div className="main-image-container">
-            <img src={mainImage} alt={selectedProduct.name} className="main-image img-fluid" />
+          <div className="d-flex justify-content-center align-items-center" style={{ height: '400px' }}>
+            <img src={mainImage} alt={selectedProduct.name} className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} />
           </div>
-          <div className="d-flex flex-row mt-2">
+          <div className="d-flex flex-row mt-2 justify-content-center">
             {selectedProduct.images.map((image, index) => (
               <img
                 key={index}
                 src={image}
                 alt={`${selectedProduct.name}-${index}`}
-                className={`img-thumbnail me-2 ${index === activeIndex ? 'active-thumbnail' : ''}`}
-                onClick={() => handleThumbnailClick(index)}
-                style={{ cursor: 'pointer', width: '60px', height: '60px' }} // Added style for fixed size thumbnails
+                className={`img-thumbnail me-2 ${index === activeIndex ? 'border border-dark' : ''}`}
+                onMouseOver={() => handleThumbnailClick(index)}
+                style={{ cursor: 'pointer', width: '60px', height: '60px' }}
               />
             ))}
           </div>
@@ -111,8 +111,8 @@ export default function HP_Product() {
         <div className="d-flex flex-column col-lg-6 mt-3 mt-lg-0">
           <div className="d-flex justify-content-between">
             <h4>{selectedProduct.name}</h4>
-            <div className='d-flex flex justify-content-end gap-1'>
-              <button className='btn btn-outline-dark' onClick={handleWishlistToggle} >
+            <div className='d-flex justify-content-end gap-1'>
+              <button className='btn btn-outline-dark' onClick={handleWishlistToggle}>
                 {isInWishlist ? <FaHeart color="red" /> : <FaRegHeart />}
               </button>
               <button className='btn btn-outline-dark'>

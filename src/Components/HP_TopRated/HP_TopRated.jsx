@@ -1,67 +1,42 @@
-import iphone13 from "../../assets/images/iphone13.jpg";
-import camera from "../../assets/images/nikon.jpg";
-import speaker from "../../assets/images/boseSystem.jpg";
-import watch from "../../assets/images/appleWatch.jpg";
-import lcd from "../../assets/images/lcd.jpg";
 import { GoChevronRight } from "react-icons/go";
 import { Link } from "react-router-dom";
+import { useProducts } from '../../context/ProductContext';
 
-export default function HP_TopRatedProducts() {
-  const topProducts = [
-    {
-      img: iphone13,
-      brand: "Apple",
-      name: "iPhone 13"
-    },
-    {
-      img: camera,
-      brand: "Nikon",
-      name: "Nikon Camera"
-    },
-    {
-      img: speaker,
-      brand: "Bose",
-      name: "Bose Speaker Speaker Speaker Speaker"
-    },
-    {
-      img: watch,
-      brand: "Apple",
-      name: "Apple Watch"
-    },
-    {
-      img: lcd,
-      brand: "Samsung",
-      name: "Samsung LCD"
-    },
-  ];
+export default function HP_TopRated() {
+  const { products } = useProducts();
+
+  if (!products) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
       <div className="mt-5"></div>
-      <div className="d-flex flex flex-row justify-content-between mx-5 my-1 p-2">
-        <div><h4>Top Rated Products</h4></div>
+      <div className="d-flex flex-row justify-content-between mx-2 my-1 p-2">
+        <div><h4>Top Selling Products</h4></div>
         <div><button className="btn btn-primary">View More <GoChevronRight /></button></div>
       </div>
 
-      <div className="d-flex flex flex-row overflow-auto mx-5 shadow shadow-1">
-        {topProducts.map((data, index) => (
-          <div className="col-lg col-md-3 col-sm-4 col-4  m-3 " key={index}>
-            <div className="d-flex flex flex-column  border border-1 rounded rounded-2 align-items-center" style={{minHeight:"320px"}}>
-            <Link to= "/ecomm/product/iphone13" className="text-decoration-none text-dark">
-              <img
-                src={data.img}
-                alt={data.name}
-                className="p-2"
-                width="100%"
-                height="220px"
-              />
-              <div className="text-center my-1 text-break">
-                <h6>{data.brand}</h6>
-                <p>{data.name}</p>
+      <div className="d-flex flex-row  justify-content-evenly overflow-auto mx-2 shadow shadow-1">
+        {Object.keys(products).slice(0,4).map(category => (products[category].map((product) => (
+            <div className="col-lg col-md-3 col-sm-6 col-12 mb-4" key={product.id}>
+              <div className="border rounded p-3">
+              <Link to={`/${category}/${product.id}`} className="text-decoration-none text-dark">
+
+                  <img
+                  src={product.images} // Assuming first image of first variant
+                    alt={product.name}
+                    className="img-fluid mb-3"
+                    style={{ maxHeight: "200px" }}
+                  />
+                  <div className="text-center">
+                    <h6>{product.brand}</h6>
+                    <p>{product.name}</p>
+                  </div>
+                </Link>
               </div>
-              </Link>
             </div>
-          </div>
+          ))
         ))}
       </div>
     </>

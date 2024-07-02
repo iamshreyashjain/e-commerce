@@ -22,7 +22,7 @@ export default function User() {
         <></>
       ) : (
         <>
-          <div className="d-flex flex gap-3 mx-5 mt-5">
+          <div className="d-flex flex gap-3 mx-2 mt-5">
             <h3  className= "border-bottom border-primary border-3 lh-2 flex-fill">Welcome, {use.email.slice(0, 1).toUpperCase()}{use.email.slice(1,4)}</h3>
             </div>
         </>
