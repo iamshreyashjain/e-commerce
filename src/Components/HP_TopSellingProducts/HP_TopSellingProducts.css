@@ -1,10 +1,11 @@
 /* Extra extra large devices (extra-large desktops) */
 @media only screen and (min-width: 1400px) {
     .thumbnailContainer{
-        min-height: 340px;
+        max-height: 380px;
     }
     .imgContainer{
         max-height: 220px;
+        min-height: 220px;
     }
 }
 
@@ -12,10 +13,11 @@
 /* Extra large devices (large desktops and high-resolution displays) */
 @media only screen  and (max-width: 1400px) and (min-width: 1200px) {
     .thumbnailContainer{
-        min-height: 340px;
+        max-height: 380px;
     }
     .imgContainer{
         max-height: 220px;
+        min-height: 220px;
     }
 }
 
@@ -23,20 +25,22 @@
 /* Large devices (desktops and laptops) */
 @media only screen and (max-width: 1200px) and (min-width: 992px) {
     .thumbnailContainer{
-        min-height: 340px;
+        max-height: 380px;
     }
     .imgContainer{
         max-height: 220px;
+        min-height: 220px;
     }
 }
 
 /* Medium devices (tablets and small laptops) */
 @media only screen and (max-width: 992px) and (min-width: 768px){
     .thumbnailContainer{
-        min-height: 340px;
+        max-height: 380px;
     }
     .imgContainer{
         max-height: 220px;
+        min-height: 220px;
     }
 }
 
@@ -44,10 +48,11 @@
 /* Small devices (phones and small tablets) */
 @media only screen and (max-width: 768px) and (min-width: 576px){
     .thumbnailContainer{
-        min-height: 340px;
+        max-height: 380px;
     }
     .imgContainer{
         max-height: 220px;
+        min-height: 220px;
     }
 }
 
@@ -55,10 +60,11 @@
 /* Extra small devices (phones) */
 @media only screen and (max-width: 576px) {
     .thumbnailContainer{
-        min-height: 200px;
+        max-height: 380px;
     }
     .imgContainer{
-        min-height: 160px;
+        max-height: 220px;
+        min-height: 220px;
     }
 }
 
