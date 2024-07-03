@@ -10,7 +10,7 @@ const googleProvider = new GoogleAuthProvider();
 export default function HP_Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [text, setText] = useState('Register & Sign In With Google')
+  const [text, setText] = useState('Register / Sign In With Google')
   const navigate = useNavigate();  // Use the useNavigate hook
 
   const auth = getAuth(app);

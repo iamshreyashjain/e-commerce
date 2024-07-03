@@ -3,6 +3,8 @@ import { FcExpand } from "react-icons/fc";
 
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { app } from "../../context/firebase.jsx";
+import { useNavigate } from "react-router-dom";
+
 
 import "./HP_Register.css";
 import { useState } from "react";
@@ -11,15 +13,15 @@ import { useFirebase } from "../../context/firebase.jsx";
 
 export default function HP_Register() {
 
-
-  const auth = getAuth(app)
+  const navigate = useNavigate();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const firebase = useFirebase();
 
-  const createUser  = () =>{
-    createUserWithEmailAndPassword(auth, email, password)
+  const registerUser = () =>{
+    firebase.signupUserWithEmailAndPassword(email, password)
+    navigate('/')
     setEmail('')
     setPassword('')
   }
@@ -76,7 +78,7 @@ export default function HP_Register() {
                 <button
                   type="button"
                   className="col-lg-12 col-md-12 col-sm-12 col-12 btn btn-outline-primary"
-                  onClick={()=>firebase.signupUserWithEmailAndPassword(email, password)} 
+                  onClick={registerUser} 
                 >
                   Register
                 </button>

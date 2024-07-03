@@ -42,6 +42,6 @@
 /* Extra small devices (phones) */
 @media only screen and (max-width: 575.98px) {
     .goBack{
-        display: none;
+        transform: rotate(90deg) scale(1.5);
     }
 }
