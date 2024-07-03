@@ -27,7 +27,7 @@ export default function HP_TopSellingProducts() {
                     src={product.images[0]} // Assuming first image of first variant
                     alt={product.name}
                     className="img-fluid mb-3"
-                    style={{ minHeight: "180px" }}
+                    style={{ minHeight: "300px" }}
                   />
                   <div className="text-center">
                     <h6>{product.brand}</h6>

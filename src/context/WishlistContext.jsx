@@ -9,7 +9,6 @@ export const WishlistProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
 
   const addToWishlist = (product) => {
-    console.log('Adding to wishlist:', product);
     setWishlist((prevWishlist) => {
       const isAlreadyInWishlist = prevWishlist.some((item) => item.id === product.id);
       if (isAlreadyInWishlist) {

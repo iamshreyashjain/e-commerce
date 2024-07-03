@@ -9,12 +9,13 @@ import { useFirebase } from './../../context/firebase';
 import { PiShareFatBold } from 'react-icons/pi';
 
 export default function HP_Product() {
+  const navigate = useNavigate();
+  
   const { category, productId } = useParams();
   const { products } = useProducts();
   const { addToCart } = useCart();
   const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
   const { currentUser } = useFirebase();
-  const navigate = useNavigate();
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [cartText, setCartText] = useState("Add to cart");
   const [mainImage, setMainImage] = useState('');

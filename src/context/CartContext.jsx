@@ -9,7 +9,11 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
-    setCart([...cart, product]);
+    if(!cart.includes(product)){
+    setCart([...cart, product]);}
+    else{
+      alert('already in Cart')
+    }
   };
 
   const removeFromCart = (id) => {

@@ -38,10 +38,10 @@ const router = createBrowserRouter([
       { path: '/customerlogin', element: <HP_Login /> },
       { path: '/search', element: <HP_Search /> },
       { path: '/customer/registration', element: <HP_Register /> },
-      { path: '/:category/:productId', element: <HP_Product /> }, // Updated dynamic route
+      { path: '/:category/:productId', element: <HP_Product /> }, 
       { path: '/cart', element: <HP_Cart /> },
       { path: '/wishlist', element: <HP_Wishlist/> },
-      { path: '/payment/:productId"', element: <HP_Payment/> },
+      { path: '/:payment/:productId"', element: <HP_Payment/> },
     ]
   },
   {
