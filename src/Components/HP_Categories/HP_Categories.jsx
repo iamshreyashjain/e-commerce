@@ -46,7 +46,7 @@ export default function HP_Categories() {
                 <img 
                   src={category.image} 
                   alt={category.caption} 
-                  className="object-fit-fill rounded rounded-2 shadow shadow-2 catImg" 
+                  className="object-fit-fill rounded rounded-2 catImg" 
                   height="120px"
                 />
               </div>

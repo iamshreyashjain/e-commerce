@@ -35,7 +35,7 @@ export default function HP_Offer() {
                 <img 
                   src={category.image} 
                   alt={`Offer ${index}`}
-                  className="object-fit-fill rounded rounded-2 shadow shadow-2 offImg" 
+                  className="object-fit-fill rounded rounded-2  offImg" 
                   height="120px"
                 />
               </div>
