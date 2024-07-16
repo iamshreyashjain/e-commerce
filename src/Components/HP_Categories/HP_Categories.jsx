@@ -40,9 +40,9 @@ export default function HP_Categories() {
       <div className="my-1"></div>
       <div className="d-flex flex-row justify-content-between flex-wrap p-2 shadow shadow-1 mx-2">
         {categories.map((category, index) => (
-          <div className="d-flex flex-column" key={index}>
+          <div className="d-flex flex-column mb-3" key={index}>
             <Link to="" className="text-decoration-none text-dark">
-              <div className="text-center">
+              <div className="catImg-container">
                 <img 
                   src={category.image} 
                   alt={category.caption} 

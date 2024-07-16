@@ -37,7 +37,7 @@ export default function HP_Header() {
       </div>
 
       {/* Search Bar */}
-      <div className="col-lg-6 col-md-6 col-4">
+      <div className="col-lg-6 col-md-6 ">
         <input
           type="text"
           className="form-control text-dark-emphasis"

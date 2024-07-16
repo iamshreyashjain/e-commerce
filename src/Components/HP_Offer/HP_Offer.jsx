@@ -1,7 +1,7 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
-import './HP_Offer.css'
+import './HP_Offer.css';
 
 export default function HP_Offer() {
   const [offers, setOffers] = useState([]);
@@ -29,13 +29,13 @@ export default function HP_Offer() {
       <div className="my-1"></div>
       <div className="d-flex flex-row justify-content-between gap-3 flex-wrap p-2 shadow shadow-1 mx-2 offSkeleton">
         {offers.map((category, index) => (
-          <div className="d-flex flex-column" key={index}>
+          <div className="d-flex flex-column mb-3" key={index}>
             <Link to="" className="text-decoration-none text-dark">
-              <div className="text-center">
+              <div className="offImg-container">
                 <img 
                   src={category.image} 
                   alt={`Offer ${index}`}
-                  className="object-fit-fill rounded rounded-2  offImg" 
+                  className="object-fit-fill rounded rounded-2 offImg" 
                   height="120px"
                 />
               </div>
