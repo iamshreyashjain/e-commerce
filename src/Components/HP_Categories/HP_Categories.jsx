@@ -40,14 +40,15 @@ export default function HP_Categories() {
       <div className="my-1"></div>
       <div className="d-flex flex-row justify-content-between flex-wrap p-2 shadow shadow-1 mx-2">
         {categories.map((category, index) => (
-          <div className="d-flex flex-column mb-3" key={index}>
+          <div className="d-flex flex-column mb-3 col-lg-2 col-md-2 col-sm-4 col-12 " key={index}>
             <Link to="" className="text-decoration-none text-dark">
               <div className="catImg-container">
                 <img 
                   src={category.image} 
                   alt={category.caption} 
-                  className="object-fit-fill rounded rounded-2 catImg" 
+                  className="object-fit-fill rounded rounded-3 col-lg-10 col-md-10 col-sm-10 col-8 mx-auto" 
                   height="120px"
+                  
                 />
               </div>
               <div className="text-center mt-3">

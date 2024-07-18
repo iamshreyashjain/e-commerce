@@ -29,13 +29,13 @@ export default function HP_Offer() {
       <div className="my-1"></div>
       <div className="d-flex flex-row justify-content-between gap-3 flex-wrap p-2 shadow shadow-1 mx-2 offSkeleton">
         {offers.map((category, index) => (
-          <div className="d-flex flex-column mb-3" key={index}>
+          <div className="d-flex flex-column mb-3 col-lg-2 col-md-2 col-sm-4 col-12" key={index}>
             <Link to="" className="text-decoration-none text-dark">
               <div className="offImg-container">
                 <img 
                   src={category.image} 
                   alt={`Offer ${index}`}
-                  className="object-fit-fill rounded rounded-2 offImg" 
+                  className="object-fit-fill rounded rounded-2 col-lg-10 col-md-10 col-sm-10 col-6 mx-auto" 
                   height="120px"
                 />
               </div>

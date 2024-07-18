@@ -32,20 +32,20 @@
 /* Medium devices (tablets and small laptops) */
 @media only screen and (max-width: 991.98px) and (min-width: 768px) {
     .catImg {
-        width: 170px;
+        width: 200px;
     }
 }
 
 /* Small devices (phones and small tablets) */
 @media only screen and (max-width: 767.98px) and (min-width: 576px) {
     .catImg {
-        width: 150px;
+        width: 180px;
     }
 }
 
 /* Extra small devices (phones) */
 @media only screen and (max-width: 575.98px) {
     .catImg {
-        width: 130px;
+        width: 200px;
     }
 }
