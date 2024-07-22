@@ -10,13 +10,7 @@ const HP_Cart = () => {
 
   const calculateTotal = () => {
     return cart.reduce((total, product) => total + product.price[0].selPrice, 0);
-    
   };
-
-  {cart.map((data)=>{
-    console.log(data.price[0].selPrice)
-
-  })}
 
   return (
     <div className="container mt-5">
@@ -43,9 +37,14 @@ const HP_Cart = () => {
                     <p>Variant: {product.variants[0].color} - {product.variants[0].ram || product.variants[0].type || ''}</p>
                     <div className="d-flex align-items-center">
                       <MdCurrencyRupee className="mb-1" />
-                      <span>{product.selPrice}</span>
-                      <p className="mb-1">{product.price[0].ogPrice}</p>
+                      <span>{product.price[0].selPrice}</span>
                     </div>
+                    {product.price[0].selPrice !== product.price[0].ogPrice && (
+                      <div className="text-decoration-line-through text-secondary mx-2">
+                        <MdCurrencyRupee className="mb-2" />
+                        {product.price[0].ogPrice}
+                      </div>
+                    )}
                   </div>
                 </div>
                 <button className="btn btn-outline-danger" onClick={() => removeFromCart(product.id)}>
@@ -54,6 +53,9 @@ const HP_Cart = () => {
               </li>
             ))}
           </ul>
+          <div className="d-flex justify-content-end">
+            <h4>Total: <MdCurrencyRupee className="mb-1" />{calculateTotal()}</h4>
+          </div>
         </div>
       )}
     </div>
