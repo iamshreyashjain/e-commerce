@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <HP_Header />
-      <Outlet />
+       <Outlet />
       <HP_Footer />
     </>
   );

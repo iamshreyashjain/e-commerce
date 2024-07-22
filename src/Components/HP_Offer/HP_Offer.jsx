@@ -21,28 +21,32 @@ export default function HP_Offer() {
 
   return (
     <>
-      <div className="my-5"></div>
-      <div className="d-flex flex-row justify-content-between mx-2">
-        <div><h4>Offers</h4></div>
-      </div>
+    <div className="my-5"></div>
+    <div className="d-flex flex-row justify-content-between mx-2">
+      <div><h4>Categories</h4></div>
+    </div>
 
-      <div className="my-1"></div>
-      <div className="d-flex flex-row justify-content-between gap-3 flex-wrap p-2 shadow shadow-1 mx-2 offSkeleton">
-        {offers.map((category, index) => (
-          <div className="d-flex flex-column mb-3 col-lg-2 col-md-2 col-sm-4 col-12" key={index}>
-            <Link to="" className="text-decoration-none text-dark">
-              <div className="offImg-container">
-                <img 
-                  src={category.image} 
-                  alt={`Offer ${index}`}
-                  className="object-fit-fill rounded rounded-2 col-lg-10 col-md-10 col-sm-10 col-6 mx-auto" 
-                  height="120px"
-                />
-              </div>
-            </Link>
-          </div>
-        ))}
-      </div>
+    <div className="my-1"></div>
+    <div className="d-flex flex-row justify-content-between flex-wrap p-2 shadow shadow-1 mx-2">
+      {offers.map((category, index) => (
+        <div className="d-flex flex-column mb-3 col-lg-2 col-md-2 col-sm-4 col-12 " key={index}>
+          <Link to="" className="text-decoration-none text-dark">
+            <div className="catImg-container">
+              <img 
+                src={category.image} 
+                alt={category.caption} 
+                className="object-fit-fill rounded rounded-3 col-lg-10 col-md-10 col-sm-10 col-8 mx-auto" 
+                height="120px"
+                
+              />
+            </div>
+            <div className="text-center mt-3">
+              <h6>{category.caption}</h6>
+            </div>
+          </Link>
+        </div>
+      ))}
+    </div>
     </>
   );
 }
