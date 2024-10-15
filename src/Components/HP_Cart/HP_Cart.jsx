@@ -1,5 +1,4 @@
-import React from 'react';
-import { RiDeleteBin5Fill, RiVisaFill } from "react-icons/ri";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
 import { HiShoppingBag } from "react-icons/hi";
 import { useCart } from '../../context/CartContext'; // Import useCart

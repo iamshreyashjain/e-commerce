@@ -22,7 +22,7 @@ import HP_Payment from './Components/HP_Payments/HP_Payment.jsx';
 import VP_Base from './Components/VP_Base/VP_Base.jsx';
 import VP_WelcomeMessage from './Components/VP_WelcomeMessage/VP_WelcomeMessage.jsx';
 import VP_LoginPage from './Components/VP_LoginPage/VP_LoginPage.jsx';
-import VP_Register from './Components/VP_Register/VP_Register.jsx';  
+import VP_Register from './Components/VP_Register/VP_Register.jsx';
 import VP_LoginOTP from './Components/VP_LoginOTP/VP_LoginOTP.jsx';
 import { CartProvider } from './context/CartContext.jsx';
 import { WishlistProvider } from './context/WishlistContext.jsx';
@@ -38,20 +38,20 @@ const router = createBrowserRouter([
       { path: '/customerlogin', element: <HP_Login /> },
       { path: '/search', element: <HP_Search /> },
       { path: '/customer/registration', element: <HP_Register /> },
-      { path: '/:category/:productId', element: <HP_Product /> }, 
+      { path: '/:category/:productId', element: <HP_Product /> },
       { path: '/cart', element: <HP_Cart /> },
-      { path: '/wishlist', element: <HP_Wishlist/> },
-      { path: '/:payment/:productId"', element: <HP_Payment/> },
+      { path: '/wishlist', element: <HP_Wishlist /> },
+      { path: '/:payment/:productId"', element: <HP_Payment /> },
     ]
   },
   {
-    path: '/vendor', 
-    element: <VP_Base />, 
+    path: '/vendor',
+    element: <VP_Base />,
     children: [
-      { path: '/vendor', element: <VP_WelcomeMessage /> },  
+      { path: '/vendor', element: <VP_WelcomeMessage /> },
       { path: '/vendor/login', element: <VP_LoginPage /> },
       { path: '/vendor/loginotp', element: <VP_LoginOTP /> },
-      { path: '/vendor/registration', element: <VP_Register /> }  
+      { path: '/vendor/registration', element: <VP_Register /> }
     ]
   }
 ]);
@@ -59,13 +59,13 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ProductProvider>
-    <WishlistProvider>
-      <CartProvider>
-        <FirebaseProvider>
-          <RouterProvider router={router} />
+      <WishlistProvider>
+        <CartProvider>
+          <FirebaseProvider>
+            <RouterProvider router={router} />
           </FirebaseProvider>
-          </CartProvider>
-          </WishlistProvider>
+        </CartProvider>
+      </WishlistProvider>
     </ProductProvider>
   </React.StrictMode>
 );

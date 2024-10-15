@@ -1,22 +1,20 @@
 import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 export default function HP_Payment() {
   const navigate = useNavigate();
-  const { state } = useLocation();
-  const { productId } = state;
+
+  const { productId } = useParams();
 
   useEffect(() => {
-    // Implement logic to fetch product details based on productId if needed
     console.log('Fetching product details for payment:', productId);
   }, [productId]);
 
   // Implement your payment form and logic here
 
   const handlePayment = () => {
-    // Implement payment processing logic
     console.log('Processing payment for product:', productId);
-    // Redirect to order confirmation page or home page after payment
     navigate('/');
   };
 

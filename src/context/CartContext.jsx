@@ -1,16 +1,13 @@
 // CartContext.js
 import { createContext, useContext, useState } from 'react';
-
 const CartContext = createContext();
-
 export const useCart = () => useContext(CartContext);
-
 export const CartProvider = ({ children }) => {
   
   //State management
   const [cart, setCart] = useState([]);
 
-  //function
+  //function->
   const addToCart = (product) => {
     if(!cart.includes(product)){
     setCart([...cart, product]);}

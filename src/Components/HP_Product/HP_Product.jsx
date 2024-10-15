@@ -1,26 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import { FaStar, FaTags, FaShoppingCart, FaCreditCard, FaHeart, FaRegHeart } from 'react-icons/fa';
 import { MdCurrencyRupee } from 'react-icons/md';
-import { useParams, useNavigate } from 'react-router-dom';
-import { useProducts } from './../../context/ProductContext';
-import { useCart } from './../../context/CartContext';
-import { useWishlist } from './../../context/WishlistContext';
-import { useFirebase } from './../../context/firebase';
 import { PiShareFatBold } from 'react-icons/pi';
 
+import { useParams, useNavigate } from 'react-router-dom';
+
+import { useProducts } from './../../context/ProductContext';
+
+import { useCart } from './../../context/CartContext';
+
+import { useWishlist } from './../../context/WishlistContext';
+
+import { useFirebase } from './../../context/firebase';
+
+
 export default function HP_Product() {
+  
+  //navigate
   const navigate = useNavigate();
   
+  //to get the id
   const { category, productId } = useParams();
+  
+  //custom hook we created 
   const { products } = useProducts();
-  const { addToCart } = useCart();
-  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
-  const { currentUser } = useFirebase();
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [cartText, setCartText] = useState("Add to cart");
-  const [mainImage, setMainImage] = useState('');
-  const [activeIndex, setActiveIndex] = useState(0);
 
+  //custom hook we created
+  const { addToCart } = useCart();
+  
+  //custom hook we created
+  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
+  
+  //custom hook we created
+  const { currentUser } = useFirebase();
+  
+  //current State of product in cart
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  
+  //button onClick setCaartText = "Added"
+  const [cartText, setCartText] = useState("Add to cart");
+
+
+//re-search what and how it is used
   useEffect(() => {
     const categoryProducts = products[category];
     if (categoryProducts) {
@@ -32,12 +53,27 @@ export default function HP_Product() {
     }
   }, [category, productId, products]);
 
+
+  //Img Gallery
+  const [mainImage, setMainImage] = useState('');
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  //img logic function
+  const handleThumbnailClick = (index) => {
+    setActiveIndex(index);
+    setMainImage(selectedProduct.images[index]);
+  };
+
+  //Price Display
+  // condition only if selPrice != ogPrice and if they're same it wont display anything
   const displayPrice = (price) => (
     <div className="d-flex flex-row align-items-center">
       <h4>
         <MdCurrencyRupee className="mb-1" />
         {price.selPrice}
       </h4>
+      
+
       {price.selPrice !== price.ogPrice && (
         <div className="text-decoration-line-through text-secondary mx-2">
           <MdCurrencyRupee className="mb-2" />
@@ -47,6 +83,7 @@ export default function HP_Product() {
     </div>
   );
 
+  //Add to cart feature made to verify already in our cart or not
   const handleAddToCart = () => {
     if (!currentUser) {
       alert('Please login to allow this feature');
@@ -56,14 +93,18 @@ export default function HP_Product() {
     addToCart(selectedProduct);
   };
 
+
+  //if someone wants to buy something immediately 
   const handleBuyNow = () => {
     if (!currentUser) {
       alert('Please login to allow this feature');
       return;
     }
+    console.log(selectedProduct.id)
     navigate(`/payment/${selectedProduct.id}`); // Navigate to payment page with product ID
   };
 
+  //------------------------------------> Wishlist Logic <------------------------------------
   const isInWishlist = wishlist.some(item => item.id === selectedProduct?.id);
 
   const handleWishlistToggle = () => {
@@ -76,11 +117,6 @@ export default function HP_Product() {
     } else {
       addToWishlist(selectedProduct);
     }
-  };
-
-  const handleThumbnailClick = (index) => {
-    setActiveIndex(index);
-    setMainImage(selectedProduct.images[index]);
   };
 
   if (!selectedProduct) {
