@@ -19,7 +19,7 @@ export default function HP_TopSellingProducts() {
       </div>
 
       <div className="d-flex justify-content-evenly overflow-auto mx-2 shadow shadow-1 gap-3 px-3">
-        {Object.keys(products).slice(0, 4).map(category => (products[category].map(product => (
+        {Object.keys(products).map(category => (products[category].map(product => (
             <div className="col-lg col-md-4 col-sm-6 col-6 my-3" key={product.id} >
               <div className="border rounded p-3 d-flex flex-column align-items-center thumbnailContainer">
                 <Link to={`/${category}/${product.id}`} className="text-decoration-none text-dark">
